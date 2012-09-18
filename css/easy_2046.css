@@ -1,0 +1,63 @@
+.style_me{background:#E7EEEE;border:1px solid #888a85;border-top:0;}
+.pw_holder{background:#fff;border:1px solid #ccc;border-radius:3px;padding:0.5em;box-shadow: 0px 0px 3px #ddd;}
+.pw_type_holder{border-bottom:1px solid #ccc;}
+.easy_2046_lw input[type=text]{box-shadow:inset 2px 2px 0px 0px #ddd;background:#f9f9f9;}
+.easy_2046_lw input[type=text], .easy_2046_lw select{width:100%;}
+.easy_2046_lw textarea{width:100%;}
+.easy_2046_lw h3{margin:0 0 0.4em 0.2em;color:#204a87;font-size:1.1em}
+.warning{color:red}
+.blue{background:blue !important;}
+.green{background:green !important;}
+.hide{display:none;}
+.lw_2046_left, .lw_2046_right{width:300px;float:left;clear:none;margin:0 0 1em 0;}
+.easy_2046_lw em{float:right;color:#666;}
+.lw_2046_left{margin-right:15px;}
+.lw_type_change_note{text-align:right;}
+.easy_2046_lw li{border:1px solid #ccc;padding:0.5em;border-radius:5px;margin-bottom:0.3em;display:table;
+background: #f9f9f9; /* Old browsers */
+background: -moz-linear-gradient(top,  #f9f9f9 0%, #e0e0e0 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f9f9), color-stop(100%,#e0e0e0)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #f9f9f9 0%,#e0e0e0 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #f9f9f9 0%,#e0e0e0 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #f9f9f9 0%,#e0e0e0 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #f9f9f9 0%,#e0e0e0 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#e0e0e0',GradientType=0 ); /* IE6-9 */
+}
+.easy_2046_lw li:hover, .ui-draggable-dragging{border:1px solid #aaa;background: #f9f9f9; /* Old browsers */
+background: -moz-linear-gradient(top,  #f9f9f9 0%, #cccccc 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f9f9), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #f9f9f9 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #f9f9f9 0%,#cccccc 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #f9f9f9 0%,#cccccc 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #f9f9f9 0%,#cccccc 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+}
+/*
+.easy_2046_lw{}
+*/
+.easy_2046_lw .view_holder, .easy_2046_lw .control_holder{float:left;clear:none;width:48%;background:#fff;border:1px solid #D3D3D3;margin:0 1em 0 0;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+.easy_2046_lw .control_holder{margin:0;}
+.ui-draggable-dragging{position:absolute;z-index:200;float:none;min-width:200px;padding:0.5em;list-style:none;opacity: .5;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";filter: alpha(opacity=50);}/*fix width while dragging*/
+.easy_2046_lw .general_bank{float:left;margin-bottom:1em;}
+.easy_2046_lw .general_bank li, .easy_2046_lw .control_bank li{width: 23%;float: left;}
+.easy_2046_lw .general_bank li.id_note{width:100%}
+.easy_2046_lw ol{margin-left:0.6em;}
+.easy_2046_lw ol li{list-style:none;width:100%}
+.easy_2046_lw li:hover{cursor:move;}
+.easy_2046_lw .general_bank li, .general_bank li:hover{border:0;background:url();cursor:default;}
+.easy_2046_lw .rem{float:right;clear:none;display:inline-block;background:#ccc;color:#fff;padding:0 0 2px 0;width:17px;height:15px;text-align:center;border-radius:10px;margin:-0.1em 0 0 0;cursor:pointer;}
+.easy_2046_lw .rem:hover{background:#333;color:#fff;}
+.easy_2046_lw #control_container, .easy_2046_lw #view_container{width:100%;padding-top:3em;margin:0;float:left;display:block;background:url(../images/here.png) no-repeat top center #f2f2f2;}
+.easy_2046_lw .control_h3{margin:-2em 0 0 308px;}/* fix for the alignment */
+.general_bank .rem, .easy_2046_lw .view_bank .rem, .easy_2046_lw .control_bank .rem,
+.easy_2046_lw .view_bank input, .easy_2046_lw .view_bank select,.easy_2046_lw .control_bank input, .easy_2046_lw .control_bank select,
+.easy_2046_lw .control_bank em,.easy_2046_lw .view_bank em
+{display:none;}/* do not let them delete thinks form the bank*/
+
+.easy_2046_lw .view_bank li, .easy_2046_lw .control_bank li{width:92%;margin-left:1em;}
+.easy_2046_lw .view_bank, .easy_2046_lw .control_bank{overflow:auto;height:200px;}
+.ui-widget-content{display:block;border:0;padding-right:0.6em;background:#f2f2f2;}
+.ui-widget-content ol{min-height:160px;}
+
+
+
