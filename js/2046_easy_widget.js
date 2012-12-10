@@ -84,7 +84,10 @@ jQuery(document).ready(function($){
 		});
 		//~ needed fix for droppable not able to handle large objects over smaller slots
 		//~  getter
-		var tolerance = $( "#view_container ol,#control_container ol" ).droppable( "option", "tolerance" );
+		//~ check if the div exist already
+		if($("#view_container ol").lenght > 0 && $("#control_container ol").lenght > 0){
+			var tolerance = $( "#view_container ol,#control_container ol" ).droppable( "option", "tolerance" );
+		}
 		// append new item in the list - after it's draged in the div
 		$( "#view_container ol" ).droppable({
 			activeClass: "ui-state-default",

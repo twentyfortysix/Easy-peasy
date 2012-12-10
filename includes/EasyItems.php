@@ -189,6 +189,21 @@ $conditional_tags_array = array(
 		'esc' => 'stip_tags'
 	)
 );
+//~ sorting choices
+$sorting_choices = array(
+	'Sort by' => 'Sort by',
+	'ID' => 'ID',  
+	'title' => 'title', 
+	'date' => 'date',
+	'modified' => 'modified',
+	'rand' => 'rand',
+	'comment_count' => 'comment_count',
+	'menu_order' => 'menu_order',
+	'parent' => 'parent',
+	'meta_value' => 'meta_value',
+	'meta_value_num' => 'meta_value_num'
+);
+
 // ------------------------------------------------------------------- // 
 //                         Build the VIEW array
 // ------------------------------------------------------------------- // 
@@ -618,19 +633,7 @@ $EasyItems = array(
 			array(
 				'ui_type' => 'select_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea, hidden
 				'esc' => 'stip_tags',
-				'choices' => array(
-					'none' => 'none',
-					'ID' => 'ID',  
-					'title' => 'title', 
-					'date' => 'date',
-					'modified' => 'modified',
-					'rand' => 'rand',
-					'comment_count' => 'comment_count',
-					'menu_order' => 'menu_order',
-					'parent' => 'parent',
-					'meta_value' => 'meta_value',
-					'meta_value_num' => 'meta_value_num'
-				),
+				'choices' => $sorting_choices,
 				'value' => 'none'
 			)
 		)
@@ -654,9 +657,9 @@ $EasyItems = array(
 				'value' => 'category'
 			),
 			array(
-				'ui_type' => 'check_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea, hidden
+				'ui_type' => 'radio_group', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea, hidden
 				'esc' => 'stip_tags',
-				'choices' => array(1 => __('Show count')),
+				'choices' => array(0 => __('Do not show count'), 1 => __('Show count')),
 				'value' => 0
 			),
 			array(
@@ -670,7 +673,7 @@ $EasyItems = array(
 	),
 	'b2046_post_image' => array(
 		'block' => 'view', // 0 = general, 1 = view, 2 = logic 
-		'item_title' => __('Image','p_2046s_easy_widget'),
+		'item_title' => __('Featured image','p_2046s_easy_widget'),
 		// gui
 		'gui' => array(
 			array(
@@ -686,6 +689,60 @@ $EasyItems = array(
 				'esc' => 'stip_tags',
 				'choices' => $image_links,
 				'value' => ''
+			),
+			array(
+				'ui_note' => __('class', 'p_2046s_easy_widget'),
+				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea, hidden
+				'esc' => 'stip_tags',
+				'choices' => '',
+				'value' => ''
+			)
+		)
+	),
+	//~ n Images from the selected posts
+	'b2046_post_images' => array(
+		'block' => 'view', // 0 = general, 1 = view, 2 = logic 
+		'item_title' => __('Post gallery','p_2046s_easy_widget'),
+		// gui
+		'gui' => array(
+			array(
+				'ui_note' => __('Image size','p_2046s_easy_widget'),
+				'ui_type' => 'select_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea, hidden
+				'esc' => 'stip_tags',
+				'choices' => $list_of_image_sizes,
+				'value' => ''
+			),
+			array(
+				'ui_note' => __('Link image to','p_2046s_easy_widget'),
+				'ui_type' => 'select_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea, hidden
+				'esc' => 'stip_tags',
+				'choices' => $list_of_image_sizes,
+				'value' => ''
+			),
+			array(
+				'ui_type' => 'select_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea, hidden
+				'esc' => 'stip_tags',
+				'choices' => array(
+					'ASC' => 'Ascendingly',
+					'DESC' => 'Descendingly'
+				),
+				'value' => 'DESC'
+			),
+			array(
+				'ui_type' => 'select_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea, hidden
+				'esc' => 'stip_tags',
+				'choices' => $sorting_choices,
+				'value' => 'none'
+			),
+			array(
+				'ui_type' => 'select_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea, hidden
+				'esc' => 'stip_tags',
+				'choices' => array(
+					'0' => 'empty title attribute',
+					'1' => 'image as image title attribute',
+					'2' => 'caption as image title attribute',
+				),
+				'value' => 'none'
 			),
 			array(
 				'ui_note' => __('class', 'p_2046s_easy_widget'),
@@ -785,7 +842,7 @@ $EasyItems = array(
 	),
 	'b2046_query_debug' => array(
 		'block' => 'control', // 0 = general, 1 = view, 2 = logic 
-		'item_title' => __('Debug Controls','p_2046s_easy_widget'),
+		'item_title' => __('Debug controls','p_2046s_easy_widget'),
 		// gui
 		'gui' => array(
 			array(
@@ -793,6 +850,56 @@ $EasyItems = array(
 				'ui_type' => 'hidden', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' => 1,
+				'esc' => 'stip_tags'
+			)
+		),
+		
+	),
+	'b2046_for_actual_postid' => array(
+		'block' => 'control', // 0 = general, 1 = view, 2 = logic 
+		'repeatable' => false,
+		'item_title' => __('For actual post/page','p_2046s_easy_widget'),
+		// gui
+		'gui' => array(
+			array(
+				'ui_note' => __('It will "guess" the actual post and show the VIEW content for it', 'p_2046s_easy_widget'),
+				'ui_type' => 'hidden', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
+				'choices' => '',
+				'value' => 1,
+				'esc' => 'stip_tags'
+			)
+		),
+		
+	),
+	//~ hyerarchical control
+	'b2046_hierarchy_based' => array(
+		'block' => 'control', // 0 = general, 1 = view, 2 = logic 
+		'item_title' => __('Hierarchy based','p_2046s_easy_widget'),
+		// gui
+		'gui' => array(
+			array(
+				'ui_type' => 'select_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
+				'choices' => array(
+						'0' => 'Pages from the same level as current page',
+						'1' => 'Pages from the same level as given ID',
+						'2' => 'Child pages of current page',
+						'3' => 'Child pages of given ID'
+					),
+				'value' => 0,
+				'esc' => 'stip_tags'
+			),
+			array(
+				'ui_note' => __('given ID, only one', 'p_2046s_easy_widget'),
+				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
+				'choices' => '',
+				'value' => '',
+				'esc' => 'stip_tags'
+			),
+			array(
+				'ui_note' => __('(in case of: ..from same level)', 'p_2046s_easy_widget'),
+				'ui_type' => 'check_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
+				'choices' => array( 1 => 'Exclude current'),
+				'value' => '',
 				'esc' => 'stip_tags'
 			)
 		),
@@ -875,6 +982,63 @@ $EasyItems = array(
 				'esc' => 'stip_tags',
 				'choices' => '',
 				'value' => 'D. M. Y'
+			),
+			array(
+				'ui_note' => __('class', 'p_2046s_easy_widget'),
+				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea, hidden
+				'esc' => 'stip_tags',
+				'choices' => '',
+				'value' => ''
+			)
+		)
+	),
+	'b2046_WP_pagenavi' => array(
+		'block' => 'view_after', // 0 = general, 1 = view, 2 = logic 
+		'item_title' => __('WP-Pagenavi','p_2046s_easy_widget'),
+		// gui
+		'gui' => array(
+			array(
+				'ui_note' => __('<a href="http://wordpress.org/extend/plugins/wp-pagenavi/">WP-Pagenavi</a> works when the plugin is installed and active.<br />The navigation will be placed automatically after the View content.', 'p_2046s_easy_widget'),
+				'ui_type' => 'hidden', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
+				'choices' => '',
+				'value' => 1,
+				'esc' => 'stip_tags'
+			)
+		)
+	),
+	'b2046_previous_post_link' => array(
+		'block' => 'view_after', // 0 = general, 1 = view, 2 = logic 
+		'item_title' => __('Previous link','p_2046s_easy_widget'),
+		// gui
+		'gui' => array(
+			array(
+				'ui_note' => __('Previous text', 'p_2046s_easy_widget'),
+				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
+				'choices' => '',
+				'value' =>'',
+				'esc' => 'stip_tags'
+			),
+			array(
+				'ui_note' => __('class', 'p_2046s_easy_widget'),
+				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea, hidden
+				'esc' => 'stip_tags',
+				'choices' => '',
+				'value' => ''
+			)
+			
+		)
+	),
+	'b2046_next_post_link' => array(
+		'block' => 'view_after', // 0 = general, 1 = view, 2 = logic 
+		'item_title' => __('Next link','p_2046s_easy_widget'),
+		// gui
+		'gui' => array(
+			array(
+				'ui_note' => __('Next text', 'p_2046s_easy_widget'),
+				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
+				'choices' => '',
+				'value' =>'',
+				'esc' => 'stip_tags'
 			),
 			array(
 				'ui_note' => __('class', 'p_2046s_easy_widget'),

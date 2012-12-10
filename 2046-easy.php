@@ -3,7 +3,7 @@
  * Plugin name: Easy
  * Plugin URI: http://wordpress.org/extend/plugins/2046s-widget-loops/
  * Description: Easy, but complex GUI website builder.
- * Version: 0.6.3
+ * Version: 0.7.3
  * Author: 2046
  * Author URI: http://2046.cz
  *
@@ -59,10 +59,10 @@ function builder_2046_main_loop_load_widget() {
 }
 
 // make class instance
-$EasyClassClone = new Easy_2046_builder();
+//~ $EasyClassClone = new Easy_2046_builder();
 // trespass data to the widget class val
-$EasyClassClone::$EasyItems = $EasyItems;
-$EasyClassClone::$EasyQuery = array(
+Easy_2046_builder::$EasyItems = $EasyItems;
+Easy_2046_builder::$EasyQuery = array(
 	'post_type' => 'post',
 	'posts_per_page' => 1,
 	'post_status' => 'publish'
@@ -121,7 +121,7 @@ $EasyClassClone::$EasyQuery = array(
 		
 		/* Set up some default widget settings. */
 		// initialize data - read the externals to the default widget 
-		$defaults = $this::$EasyItems;
+		$defaults = Easy_2046_builder::$EasyItems;
 		//$instance = wp_parse_args( $instance, $defaults );
 		//extract( $instance, EXTR_SKIP );
 		
@@ -161,7 +161,7 @@ $EasyClassClone::$EasyQuery = array(
 		wp_reset_postdata();
 		
 		//~  define default query,so we get something at least, a working query
-		$default_query = $this::$EasyQuery;
+		$default_query = Easy_2046_builder::$EasyQuery;
 		//~ check if it makes sense to process anything
 		//~ the resistor ids a filter that returns true if all the conditions are meet, flase if not.. if not then skip the next process
 		$resistor = $this->f2046_output_resistor($default_query,$instance);
@@ -180,7 +180,7 @@ $EasyClassClone::$EasyQuery = array(
 			}
 			//~ mydump($query_args);
 			// The Query
-			$the_query = new WP_Query( $query_args );
+			$easy_query = new WP_Query( $query_args );
 			//~ General restrictions
 			//~ b2046_general_visibility
 			//~ $permissions = '';
@@ -199,7 +199,7 @@ $EasyClassClone::$EasyQuery = array(
 			//~ $permissions = EasyControl_b2046_general_visibility($the_query->post->ID, '');
 			//~ if(empty($permissions) || $permissions == 'all' || current_user_can( $permissions )){
 				
-				if($the_query->have_posts()) :
+				if($easy_query->have_posts()) :
 				
 					//~ many per row
 					if($b2046_scafold_type == 2){
@@ -219,7 +219,7 @@ $EasyClassClone::$EasyQuery = array(
 					}
 					
 					// The Loop
-					while ( $the_query->have_posts() ) : $the_query->the_post();
+					while ( $easy_query->have_posts() ) : $easy_query->the_post();
 						//~ scafold check
 						if($b2046_scafold_type == 1){
 							$output .= '<div class="'.$b2046_scafold_row_class.'">';
@@ -228,7 +228,7 @@ $EasyClassClone::$EasyQuery = array(
 						
 						$output .= '<div id="post-'.get_the_ID().'" class="'.$class.'"'; 
 						$output .= '>';
-						$output .= $this->f2046_front_end_builder($instance, $the_query->post->ID);
+						$output .= $this->f2046_front_end_builder($instance, $easy_query);
 						$output .= '</div>';
 						
 						//~ scafold - one per row - row
@@ -246,6 +246,8 @@ $EasyClassClone::$EasyQuery = array(
 						$output .= $after_widget;
 					}
 				endif;
+				//~ view-after
+				$output .= $this->f2046_front_end_after_builder($instance, $easy_query);
 				// Reset Post Data
 				wp_reset_postdata();
 			//~ }
@@ -264,7 +266,7 @@ $EasyClassClone::$EasyQuery = array(
 	//~ execute the function with the same name as the view title
 	//~ plus add values
 	//~ add function result to the output string
-	function f2046_front_end_builder($instance, $post_ID){
+	function f2046_front_end_builder($instance, $easy_query){
 		$data_to_process = $this->f2046_matcher($instance, 'view');
 		$output = '';
 		$values = array();
@@ -275,8 +277,30 @@ $EasyClassClone::$EasyQuery = array(
 			foreach($val['gui'] as $each){
 				$values[] = $each['value'];
 			}
-			$func = 'EasyView_'.$val['tmp_title'];
-			$output .= $func($post_ID, $values);
+			$func = $val['tmp_title'];
+			$output .= $func($easy_query, $values);
+			unset($values);
+			$i++;
+		 }
+		return	$output;
+	}
+	
+	//~ 
+	//~ build the "something" after the loop, "based on the query"
+	//~ 
+	function f2046_front_end_after_builder($instance, $easy_query){
+		$data_to_process = $this->f2046_matcher($instance, 'view_after');
+		$output = '';
+		$values = array();
+		
+		foreach($data_to_process as $key => $val){
+			$i = 0;
+			
+			foreach($val['gui'] as $each){
+				$values[] = $each['value'];
+			}
+			$func = $val['tmp_title'];
+			$output .= $func($easy_query, $values);
 			unset($values);
 			$i++;
 		 }
@@ -300,7 +324,7 @@ $EasyClassClone::$EasyQuery = array(
 			//~  
 			//~ check if the array value under given key is defined
 			//~ in the case of checkboxed values, some might be empty, and then it trigers errors, obviously.
-			sort($val['gui']);
+			//~ sort($val['gui']); // seams like that this was bogus.. it actually resorts some thing inproperly.. come controls might be wrong now!
 			if(is_array($val['gui']) && count($val['gui']) > 1){
 				$values = array();
 				foreach($val['gui'] as $key => $v){
@@ -312,7 +336,7 @@ $EasyClassClone::$EasyQuery = array(
 				}
 			}
 			//~ create function
-			$func = 'EasyControl_'.$val['tmp_title'];
+			$func = $val['tmp_title'];
 			//~ process data by that function --- should be declared outside , like in EasyFunctions.php
 			$function_result = $func($tmp_result, $values);
 			//~ echo '-----/\----after function EasyControl_'.$val['tmp_title'].' <br />';
@@ -323,6 +347,7 @@ $EasyClassClone::$EasyQuery = array(
 		$output = $tmp_result;
 		return $output;
 	}
+	
 	
 	//~ 
 	//~ Dynamicaly create function names which fas to be found "somewhere" and precess the data
@@ -352,7 +377,7 @@ $EasyClassClone::$EasyQuery = array(
 				}
 			}
 			//~ create function
-			$func = 'EasyResistor_'.$val['tmp_title'];
+			$func = $val['tmp_title'];
 			//~ process data by that function --- should be declared outside , like in EasyFunctions.php
 			$function_result = $func($default_query, $values);
 			//~ if only just once any of the resistor functions triggers false
@@ -371,7 +396,6 @@ $EasyClassClone::$EasyQuery = array(
 	//~ Matcher
 	//~ returns updated array made out of the user data merged with the default item array
 	//~ 
-	//~  TODO dodelat resistor y
 	function f2046_matcher($instance, $wanted_type){
 		$output = array();
 		//~ merge given data with the defults
@@ -405,9 +429,9 @@ $EasyClassClone::$EasyQuery = array(
 				$i++;
 			}
 		}
-		if($wanted_type == 'view' || $wanted_type == 'control' || $wanted_type == 'resistor'){
+		if($wanted_type == 'view' || $wanted_type == 'view_after' || $wanted_type == 'control' || $wanted_type == 'resistor'){
 			
-			if($wanted_type == 'view'){
+			if($wanted_type == 'view' || $wanted_type == 'view_after'){
 				$distinguisher = 'b2046_bricks';
 			}
 			else{
@@ -470,7 +494,7 @@ $EasyClassClone::$EasyQuery = array(
 			if ($val['block'] == 'general'){
 				$global_view_items[$key] = $val;
 			}
-			if ($val['block'] == 'view'){
+			if ($val['block'] == 'view' || $val['block'] == 'view_after'){
 				$view_view_items[$key] = $val;
 			}
 			//~ pass controls and resistors to the control slot
@@ -521,7 +545,9 @@ $EasyClassClone::$EasyQuery = array(
 					$output .= '</ol>
 				</div>
 			</div>
-		</div>';
+		</div>
+		<div style="float:left;clear:both;width:100%"><a target="_blank" href="http://2046.cz/easy">Documentation</a></div>
+		';
 		// get the gold
 		return $output;
 	}
@@ -874,7 +900,7 @@ function f2046_Easy_insert_custom_css(){
 	wp_enqueue_style( 'easy_2046');
 	
 	wp_register_script('easy_2046_widget',plugins_url( 'js/2046_easy_widget.js' , __FILE__ ));
-	wp_enqueue_script('easy_2046_widget');
+	wp_enqueue_script('easy_2046_widget', array('jquery'),null, null, true);
 	
 }
 

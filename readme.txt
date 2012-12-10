@@ -1,65 +1,99 @@
 === Easy ===
 Plugin name: Easy
-Contributors: 2046
+Contributors: o----o
 Plugin URI: http://wordpress.org/extend/easy
 Donate Link: http://2046.cz/
 Tags: admin, widget, loop, page, post, custom, type, taxonomy, tag, category, comments, content, drag, drop, gallery, image
 Requires at least: 3.4.1
-Tested up to: 3.4.1
-Stable tag: 0.6.3
+Tested up to: 3.5
+Stable tag: 0.7.3
 
-Easy, but complex GUI website builder.
+Easy, but complex widget website builder.
 
 == Description ==
 
-"Easy" is a widget based Drag&Drop content builder.
-Making website in Wordpress has never been easier. You can literally drop any part of the website anywhere.
+Easy is a multi-functional widget covering most of the native Wordpress functions commonly used in templates.
+You can place almost any part of your content anywhere in your sidebars.
 
-= Easy description =
-* <b>VIEW</b> slot where you decide what you want to see from the post or any of your custom content type the way you like - title, content, category, your custom meta, Edit link... Each bricks can be wrapped in your own class and has many nice settings.
-* <b>CONTROL</b> slot lets you restrict the VIEW content to be shown on certain template type, or on post/page IDs or any custom post type ID and much much more.
-* <b>GENERAL</b> slot lets you entitle the widget, make admin note, and select what kind of scafold (div structure) you like etc.
+The widget is made out of drag&drop bits (bricks) and is totally up to you what you want to show on your website.
 
-"Easy" is done in extensible way. So that anybody can plug in their own VIEW or CONTROL brick with its own logic. Make a CONTROL brick is matter of minutes. Make VIEW bricks is even faster.
-The Documentation will be ready soon.
+Easy widget has variety of bricks representing the content and its logic. You can make simple or complex layout simply by dragging the bricks in to their slots and define on what cases it has to be shown or not.
 
-This widget is a new much better version then its ancestor <a href="http://wordpress.org/extend/plugins/2046s-widget-loops/">2046's loop widget</a> which serves as a the testing platform, before the real thing comes.
+Content bricks are:
 
-"more on": <a href="http://2046.cz/freestuff/easy.html">Project homepage</a>
+ * title
+ * content
+ * featured image
+ * categories
+ * tags
+ * taxonomies
+ * custom meta
+ * comments
+ * author
+ * date
+ * shortcode
+ * WPpagenavi (when installed)
+ * ...
+ * and even your own content bricks if you like
+ 
+The resulting content is displayed based on the logic you build the same way as you did the content.
+You just drag the logical bricks to their slot and the content will be shown based on that logic.
+Logical bricks are:
+
+ * Number of posts
+ * post type chooser
+ * offset
+ * hierarchical logic (for pages and alike) 
+ * category filter
+ * custom meta filter
+ * post status
+ * edit link
+ * permissions
+ * ...
+ * and even your own logic bricks if you like
+ 
+In adition to that the result can be designed to your needs. You can add your own classes to the whole widget (the HTML structure) and also to each content brick (a part of the content).
+Then again it is totally up to you how you design your website.
+
+Does it reminds you something?
+Yes, it is exactly what you do when you design your template; you loop through the post or pages in your template, but this time without touching the code.
+All the content and logical bricks are only graphical representation of the Wordpress functions.
+
+The aim of this plugin is to speed up common programming work, so we do not have to repeat our selves.
+Imagine a website made out of "sidebars" filled with widgets representing the list of last posts, menu, the image gallery, any content that is actually the website.
+All built out of widgets that you can re-arrange anyway you or your client like right out of the admin area. That is the main purpose of the widgets anyway, Easy makes it real.
+
+= Documentation =
+
+ * <a href="http://2046.cz/easy/">Easy</a>
+ * <a href="http://2046.cz/blog">Tutorials</a>
+ * <a href="http://2046.cz/easy/general">General description</a>
+ * <a href="http://2046.cz/easy/view">View description</a>
+ * <a href="http://2046.cz/easy/control">Control description</a>
+ * <a href="http://2046.cz/easy/extend">Extend</a>
 
 == Installation ==
 
 As usual. If you don't know how, check out the <a href="http://codex.wordpress.org/Managing_Plugins">official how-to</a>.
 
 == Frequently Asked Questions ==
+ 
 
-= What is to be done =
- * Core - <b>DONE</b>
- * Multi selector for each item - <b>DONE</b>
- * Multiple controls of the same type - <b>DONE</b>
- * Finish the input builder - NEARLY COMPLETE
- * Create all view items for.. taxonomies, categories, author, meta values, etc. - NEARLY COMPLETE
- * Create items covering all native Wordpress WP_Query possibilities. - IN PROGRESS
- * NEW Extra_views bricks (subviews) - the output can be placed before or after the main query loop - IN CONSIDERATION
- * Controllers weight - ..in case when one controller logic is meet and other not...possibility to set which ones beats the other - IN CONSIDERATION
+= Why I cannot use more then one instance of some control bricks? =
 
- * Localization
- * Write nice Documentation
- * Create an well documented example extension in form of WP plugin.
- * Listen to you guys.
-
-= Why I cannot use more then one instance of control brick of the same type? =
-
-Yep, you can, but only for some control bricks.
-It make sense in some cases, and make no sense in others. 
-For example you can add multiple category controler in order to be more precise on filtering the result, But you cannot add more then one Post type controller. Why should you, when you can set up multiple post types separating their names by coma :)
+Yep, you cannot. You can do it only for some control bricks where it "makes sense".
 
 = Why did you make such a thing for free? =
 
 This is my reward to the WP community
 
+= What if I want my to make my own function part of the Easy widget? =
+
+It is possible and even more, it's easy. Check out the documentation <a href="http://2046.cz/easy/extend">Extend</a>.
 
 == Upgrade Notice ==
+
+Please if you encounter any misbehavior, let my know on the forum. I'll be happy to fix it!
 
 Allways back up your widgets, do not let the sky fall. Use the <a href="http://wordpress.org/extend/plugins/widget-saver/">Widget saver</a> plugin.
 
@@ -69,7 +103,41 @@ Allways back up your widgets, do not let the sky fall. Use the <a href="http://w
 
 == Change log ==
 
-= 0.6.2 =
+= 0.7.3 =
+ * FIX -small javascript fix needed for upcoming WP 3.5.
+
+= 0.7.2 =
+
+ * NEW - select box in "Post gallery" that lets you select where from the image title will be taken or if any. choices: empty title attribute, image as image title attribute, caption as image title attribute. The title is used in the img HTML tag.. and is used by most lightboxes.
+ * FIX - VIEW - Taxonomies (Categories) - the class has not been considered when the number check box has not been checked
+ * FIX - CONTROL - "For actual post/page" - the brick worked only for posts. From now on it guesses the actual post/page/... type and so you can make gallery for any post type automatically
+ * FIX - CONTROL - sorting - this functin doesn't sorted att all, now it does.. can't believe nobody complained so far.
+ 
+= 0.7.1 =
+
+ * to be more precise I have renamed the "Image" brick to "Featured image" (no function change)
+ * NEW - VIEW brick - "Post gallery" - you can now take all the post images for the post/pages defined in the control logic and build a image gallery. 
+ * NEW - CONTROL - "For actuallly viewed "post/page" - it will "guess" the actually visible post/page ID and shows the elements defined in the CONTENT slot. 
+ This is usefull especially together with the  "Post gallery" VIEW brick. When you use them together it creates a gallery out of all images uploaded in that particular post/page automatically.
+
+= 0.7 =
+
+ * NEW - VIEW brick: internal type which is rendered after the view content.. (interesting only for developers)
+ * NEW - VIEW brick: WP-Page navigation brick (Works when the <a href="http://wordpress.org/extend/plugins/wp-pagenavi/">WP-Pagenavi</a> plugin is active
+ * NEW - VIEW brick - prev link
+ * CHANGE - Couple changes in inner function names and structure (it should not affect your actual setup)
+ * CHANGE - the function "f2046_front_end_builder" that actualy renders the loop content is given the whole query object instead the post->ID. Which means you can get more data to play with.. if you are developer
+ 
+ 
+= 0.6.5 =
+
+ * FIX - I've been mixing an instance calls with static calls .) , which triggers errors on some server setups
+
+= 0.6.4 =
+ * NEW - CONTROL - show pages based on hierarchy level (like: child pages of the parent page by ID, child pages of current page etc.)
+ * FIX - resorting the settings aray was not a good idea - removed and so the CONTROL taxonomy has been rewriten a bit
+ 
+= 0.6.3 =
 
  * FIX - no "big" changes for today. I have fixed the UI CSS. The widget looks good .) on all major browsers. Chrome (v.21), Firefox (v.15+) and also the Explorer (v 8+)
   
