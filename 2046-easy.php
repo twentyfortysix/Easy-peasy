@@ -3,7 +3,7 @@
  * Plugin name: Easy
  * Plugin URI: http://wordpress.org/extend/plugins/2046s-widget-loops/
  * Description: Easy, but complex GUI website builder.
- * Version: 0.7.3
+ * Version: 0.7.4
  * Author: 2046
  * Author URI: http://2046.cz
  *

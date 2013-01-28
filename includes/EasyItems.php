@@ -745,6 +745,15 @@ $EasyItems = array(
 				'value' => 'none'
 			),
 			array(
+				'ui_type' => 'select_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea, hidden
+				'esc' => 'stip_tags',
+				'choices' => array(
+					'0' => 'include featured image',
+					'1' => 'exclude featured image'
+				),
+				'value' => '0'
+			),
+			array(
 				'ui_note' => __('class', 'p_2046s_easy_widget'),
 				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea, hidden
 				'esc' => 'stip_tags',

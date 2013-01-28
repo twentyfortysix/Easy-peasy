@@ -309,23 +309,29 @@ function b2046_post_images($easy_query, $values){
 	$order = $values[2];
 	$orderby = $values[3];
 	$title_value = $values[4];
-	$class = $values[5];
+	$featured_image_showhide = $values[5];
+	$class = $values[6];
 	$out = '';
 	//~ get all posts based on the user query
 	//~ get all its IDs and make arrayy late used as parent pages
 	$the_query = new WP_Query($easy_query->query);
-	
+
+	$g_args =array(
+		'post_parent' => $the_query->post->ID,
+		'post_status' => 'inherit',
+		'post_type' => 'attachment',
+		'post_mime_type' => 'image',
+		'order' => $order,
+		'orderby' => $orderby
+	);
+	// if the do NOT want to include featured image in the gallery
+	if($featured_image_showhide == 1){
+		$g_args['post__not_in'] = array(get_post_thumbnail_id( $easy_query->post->ID ));
+	}
 	if($the_query->have_posts()){
 		while ( $the_query->have_posts() ) : $the_query->the_post();
-			$attachments = get_children(array(
-				'post_parent' => $the_query->post->ID,
-				'post_status' => 'inherit',
-				'post_type' => 'attachment',
-				'post_mime_type' => 'image',
-				'order' => $order,
-				'orderby' => $orderby
-				)
-			);
+			$attachments = get_children($g_args);
+
 			//~ process all found
 			foreach($attachments as $key => $val) {
 				if(!empty($val->ID)){
