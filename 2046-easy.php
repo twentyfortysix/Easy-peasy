@@ -3,41 +3,11 @@
  * Plugin name: Easy
  * Plugin URI: http://wordpress.org/extend/plugins/2046s-widget-loops/
  * Description: Easy, but complex GUI website builder.
- * Version: 0.7.4
+ * Version: 0.8
  * Author: 2046
  * Author URI: http://2046.cz
  *
  */
- 
- /*
-  * Btw I gratly appreciate the Geany editor - chek it out http://www.geany.org/
-  * 
-  * /
-/*
-//~ The function structure:
-* 
-* 
-read externals:
- - items (array, each subaray represents the widget UI it's position, the name of the function(the logic))
- - functions (functions which will be used by each item, as it's stated above)
-	 
-register widget
-
-	Widget:
-	- widget reads the externally defined items 
-	- widget inicialize itself
-	- function "form"
-	->uses function "f2046_widget_builder" (creates the Admin widget UI)
-	-->uses function "f2046_inputbuilder" (makes the input, select, and other html based on the external definitions, for all it's 3 parts)
-	-->uses function "f2046_widget_brick_collector" (goes through the user bricks combine the user data(bricks) with default objects serve it to the input builder)
-	--->uses function "f2046_inputbuilder" {this will create the drag&droped inputs back to the slot after the witget is saved and loaded again}
-	- function "update" (updates the gathered data to the database, and santized... not yet!)
-	-function "widget"
-	-->uses function "f2046_front_end_builder" (buildz the front end HTML)
-	---> uses function"f2046_matcher" (matcher collects the user values from widget with the default structure, and completes the array of each needed item )
-	---> ! - it creates a new function with unique name taken form the item name (this functin have to be stated in externals.. and has to able manipulate properly with the given data. The it returns each HTML back)
-*
-*/
 
 //~ read default items & functions
 require_once( 'includes/EasyItems.php' );
@@ -138,16 +108,33 @@ Easy_2046_builder::$EasyQuery = array(
 	 */
 	function update($new_instance, $old_instance ) {
 	
-		//
-		// Here wiil be just the data validation
-		//
-		//~ each value will be validated by the logic stated in the item array
-		
-		//$instance = $old_instance;
-			/* Strip tags for title and name to remove HTML (important for text inputs). */
-			//$instance['the_post_type'] = strip_tags( $new_instance['the_post_type'] ); 
-			// just pass the variable to db without any other rework
-			// TODO escape attributes based on inputs
+		// for each item value (array) apply the esc function AKA secure the values, and let only wanted.. 
+		// 
+		// get the referenctial array
+		$default_items = Easy_2046_builder::$EasyItems;
+		// process  user arrays
+		foreach($new_instance as $item => $val){ 
+			foreach ($val as $gui => $g) {
+				foreach ($g as $k => $v) {
+					if( isset($v['gui']) ){
+						$i = 0;
+						foreach($v['gui'] as $value){
+							// here is the value we want to secure
+							$to_be_secured = $value['value'];
+							// get the wanted escape type for the actual value - defined in the EasyItem
+							// and create reference it to the predefined function, like "esc_attr"
+							$escape_type_function = $default_items[$k]['gui'][$i]['esc'];
+							if(!empty($escape_type_function)){
+								// filter out the user value by the desired escape function
+								$new_instance[$item][$gui][$k]['gui'][$i]['value'] = $escape_type_function($to_be_secured);
+								// mydump($instance[$item][$gui][$k]['gui'][$i]['value']);
+							}
+							$i++;
+						}
+					}
+				}
+			}	
+		}
 		return $new_instance;
 	}
 	
@@ -155,13 +142,15 @@ Easy_2046_builder::$EasyQuery = array(
 	 * How to display the widget on the front end
 	 */
 	function widget($args, $instance) {
-		extract( $args );
+		
+		
 		//~ reset previous post data.. just to be sure 
 		//~ somebody could run their own wp_query and do not reset the data ;)
 		wp_reset_postdata();
 		
 		//~  define default query,so we get something at least, a working query
 		$default_query = Easy_2046_builder::$EasyQuery;
+
 		//~ check if it makes sense to process anything
 		//~ the resistor ids a filter that returns true if all the conditions are meet, flase if not.. if not then skip the next process
 		$resistor = $this->f2046_output_resistor($default_query,$instance);
@@ -902,6 +891,48 @@ function f2046_Easy_insert_custom_css(){
 	wp_register_script('easy_2046_widget',plugins_url( 'js/2046_easy_widget.js' , __FILE__ ));
 	wp_enqueue_script('easy_2046_widget', array('jquery'),null, null, true);
 	
+}
+
+//  cleaning filter - only numbers
+function filter_number($string){
+	$output = '';
+	$output = preg_replace("/[^0-9]/", "", $string );
+	return $output;
+}
+
+//  cleaning filter - / numbers, spaces, dashes
+function filter_number_space_dash($string){
+	$output = '';
+	$output = preg_replace("/[^0-9\s,]/", "", $string );
+	return $output;
+}
+
+//  cleaning filter - // letters, space, dash
+function filter_letter($string){
+	$output = '';
+	$output = preg_replace("/[^A-Za-z]/", "", $string );
+	return $output;
+}
+
+//  cleaning filter - // letters, space, dash
+function filter_letter_space_dash($string){
+	$output = '';
+	$output = preg_replace("/[^A-Za-z\s,]/", "", $string );
+	return $output;
+}
+
+//  cleaning filter - // letters, numbers, dash, underscore, space
+function filter_attribute_characters($string){
+	$output = '';
+	$output = preg_replace("/[^A-Za-z0-9\s-\_]/", "", $string );
+	return $output;
+}
+
+//  cleaning filter - / alphabet numbers, spaces, dashes, dash, comma
+function filter_save_characters($string){
+	$output = '';
+	$output = preg_replace("/[^A-Za-z0-9\s-\_,]/", "", $string );
+	return $output;
 }
 
 function mydump($a){

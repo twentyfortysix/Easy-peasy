@@ -5,8 +5,8 @@ Plugin URI: http://wordpress.org/extend/easy
 Donate Link: http://2046.cz/
 Tags: admin, widget, loop, page, post, custom, type, taxonomy, tag, category, comments, content, drag, drop, gallery, image
 Requires at least: 3.4.1
-Tested up to: 3.5
-Stable tag: 0.7.4
+Tested up to: 3.5.1
+Stable tag: 0.8
 
 Easy, but complex widget website builder.
 
@@ -99,13 +99,18 @@ It is possible and even more, it's easy. Check out the documentation <a href="ht
 
 Please if you encounter any misbehavior, let my know on the forum. I'll be happy to fix it!
 
-Allways back up your widgets, do not let the sky fall. Use the <a href="http://wordpress.org/extend/plugins/widget-saver/">Widget saver</a> plugin.
+Always back up your widgets, do not let the sky fall. Use the <a href="http://wordpress.org/extend/plugins/widget-saver/">Widget saver</a> plugin.
 
 == Screenshots ==
  
 1. Screenshot of the version 0.5
 
 == Change log ==
+
+= 0.8 =
+ * The security time comes.
+    All the input fields are now automatically escaped during the widget saving process. All the escapes techniques are defined for each field separately.
+    If you define your own item (meaning, if you extend the Easy of by your own bricks), doesn't matter if View or Control you can choose from any Wordpress built in sanitize, escape function as well as native PHP functions and functions that comes with this plug-in (more in the Documentation).
 
 = 0.7.4 =
  * You can exclude the featured image from the gallery in "Post gallery" brick. Warning! All "Post gallery" bricks has to be updated!
