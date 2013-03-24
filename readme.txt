@@ -6,7 +6,7 @@ Donate Link: http://2046.cz/
 Tags: admin, widget, loop, page, post, custom, type, taxonomy, tag, category, comments, content, drag, drop, gallery, image
 Requires at least: 3.4.1
 Tested up to: 3.5.1
-Stable tag: 0.8
+Stable tag: 0.8.9
 
 Easy, but complex widget website builder.
 
@@ -36,6 +36,8 @@ Content bricks are:
  * author
  * date
  * shortcode
+ * post gallery
+ * sidebar
  * WPpagenavi (when installed)
  * ...
  * and even your own content bricks if you like
@@ -53,6 +55,8 @@ Logical bricks are:
  * post status
  * edit link
  * permissions
+ * meta filter
+ * taxonomy filter
  * ...
  * and even your own logic bricks if you like
  
@@ -106,6 +110,38 @@ Always back up your widgets, do not let the sky fall. Use the <a href="http://wo
 1. Screenshot of the version 0.5
 
 == Change log ==
+= 0.9 =
+* FIX - Featured image did not point to where it has to !!! you should deactivate and reactivate the plugin, in order to see all image versions as they exists. Otherwise you'll se a weird mix of "same" sizes !!!
+
+= 0.8.9 =
+ * FIX - CONTROL - Show-Hide on ID
+ * NEW - CONTROL - Meta - a custom meta filter
+ * NEW - VIEW - sidebar - shows sidebar within sidebar :O . Grate if you would like to use the Easy control logic for widgets that have no controls of that kind.. about 99.99% ;) DO NOT include a sidebar within it self!
+
+= 0.8.8 =
+ * NEW - CONTROL brick - Taxonomy matcher - it gets terms from the main post/page and adjusts the Easy widget query according to it. You can show post on the side that are in the same category as the actual post ..or something like that.  
+= 0.8.7 =
+* FIX - array_combine error
+* NEW - Author VIEW brick - shows the author or his/her name, url, ... 
+
+= 0.8.6 =
+* FIX - another fix for "Post gallery brick"
+= 0.8.5 =
+ * FIX - Invalid argument supplied for foreach() in ..easy/includes/EasyItems.php 
+= 0.8.4 =
+* FIX - the "Post gallery" brick really lists all registred image sizes now.
+
+= 0.8.3 =
+* NEW - VIEW - "Prev/Next link" - mimics the native posts_nav_link() function
+
+= 0.8.2 =
+* Previous , next link fix
+* Permission bricks does not echo it's state :)
+* NEW - CONTROL brick - "Exclude actual post/page" - excludes currently visible post/page/custom from the widget loop  
+
+= 0.8.1 =
+* small fix (before & after widget)
+* text Brick allows html tags, same as you can use in post content
 
 = 0.8 =
  * The security time comes.

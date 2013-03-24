@@ -3,7 +3,7 @@
  * Plugin name: Easy
  * Plugin URI: http://wordpress.org/extend/plugins/2046s-widget-loops/
  * Description: Easy, but complex GUI website builder.
- * Version: 0.8
+ * Version: 0.9
  * Author: 2046
  * Author URI: http://2046.cz
  *
@@ -143,7 +143,6 @@ Easy_2046_builder::$EasyQuery = array(
 	 */
 	function widget($args, $instance) {
 		
-		
 		//~ reset previous post data.. just to be sure 
 		//~ somebody could run their own wp_query and do not reset the data ;)
 		wp_reset_postdata();
@@ -197,7 +196,7 @@ Easy_2046_builder::$EasyQuery = array(
 					}
 					//~  default widget classes
 					elseif($b2046_scafold_type == 0){
-						$output .= $before_widget;
+						$output .= $args['before_widget'];
 					}
 					
 					$WPpostClass = get_post_class();
@@ -232,7 +231,7 @@ Easy_2046_builder::$EasyQuery = array(
 					}
 					//~  default widget classes
 					elseif($b2046_scafold_type == 0){
-						$output .= $after_widget;
+						$output .= $args['after_widget'];
 					}
 				endif;
 				//~ view-after
@@ -805,7 +804,7 @@ Easy_2046_builder::$EasyQuery = array(
 					//~ 
 					//~ hidden
 					//~ 
-					if ($val['ui_type'] == 'hidden'){
+					elseif ($val['ui_type'] == 'hidden'){
 						if(isset($ui_note)){
 							$placeholder = $ui_note;
 						}else{
@@ -832,6 +831,19 @@ Easy_2046_builder::$EasyQuery = array(
 						}
 						$output .= '</div>';
 					}
+					//~ 
+					//~ playin text - note
+					//~ 
+					elseif ($val['ui_type'] == 'plain'){
+						if(isset($ui_note)){
+							$placeholder = $ui_note;
+						}else{
+							$placeholder = '';
+						}
+						// $output .= '<input '.$j_title.' type="hidden" name="'. $name .'[gui]['.$each_gui_i.'][value]" value="'. $gui_value .'"/>';
+						$output .= '<em>'.$placeholder.'</em>';
+					}
+
 					//~ iterate for each gui
 					$each_gui_i++;
 				$i++;
@@ -940,3 +952,64 @@ function mydump($a){
 		var_dump($a);
 	echo '</pre>';
 };
+
+// 
+// WRITE PLUGIN OPTIONS IN TO DB
+// 
+// get registred image sizes 
+// write them in to the DB
+// so that WP can use them sooner or later
+// --why -- Wordpress has no trace of what image sizes are registered. instead it register them on the way .. which not much handy for us
+// we need the values before the WP is on the way, we have to get it from somewhere .. this time from DB
+add_action('init', 'easy_widget_DB_options', 99);
+
+function easy_widget_DB_options() {
+	// define the table prefix
+	$easy_widget_DB_options = 'easy_2046_';
+	// get extra image sizes if any
+	$e_images = get_intermediate_image_sizes();
+	// check the image sizes and make the value
+	if(!empty($e_images)){
+		foreach ($e_images as $key => $value) {
+			$extra_image_sizes[$value] = $value;
+		}
+	}else{
+		$extra_image_sizes = array();
+	}
+	// get the options from DB
+	$easy_options = get_option($easy_widget_DB_options);
+	// update only when the it the data are not there already
+	if($easy_options['extra_image_sizes'] != $extra_image_sizes){
+		// build the data
+		$data = array(
+			'extra_image_sizes' => $extra_image_sizes
+			);
+		// update the options
+		update_option($easy_widget_DB_options, $data);
+	}
+}
+// create our own get_dynamic_sidebar function, which is not in the WP core
+if (!function_exists('get_dynamic_sidebar')) {
+	function get_dynamic_sidebar($index) 
+	{
+		$sidebar_contents = "";
+		ob_start();
+		dynamic_sidebar($index);
+		$sidebar_contents = ob_get_clean();
+		return $sidebar_contents;
+	}
+}
+function list_of_image_sizes(){
+	$image_size_from_DB_options = get_option('easy_2046_');
+	// get the extra image sizes form our options
+	$intermediate_image_sizes_raw = get_intermediate_image_sizes();
+	foreach ($intermediate_image_sizes_raw as $key => $value) {
+			$intermediate_image_sizes[$value] = $value;
+		}
+	if(isset($image_size_from_DB_options['extra_image_sizes'])){
+		$intermediate_image_sizes = $intermediate_image_sizes + $image_size_from_DB_options['extra_image_sizes'];
+	} 
+	$full_image_width = array('full' => 'full');
+	$list_of_image_sizes = array_merge($intermediate_image_sizes,$full_image_width );
+	return $list_of_image_sizes;
+}

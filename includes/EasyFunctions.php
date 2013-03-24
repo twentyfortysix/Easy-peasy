@@ -4,17 +4,17 @@
 function b2046_scafolding($value, $custom_class){ // custom_class will come with when will work the multi input
 	$out = array('','');
 	if(isset($value)){
-		 if ($value == '1'){
+		if ($value == '1'){
 			 //~ Hard definied just for now
-			 $out[0] = 'row';
-			 $out[1] = 'span12';
+			$out[0] = 'row';
+			$out[1] = 'span12';
 		}elseif($value == '2'){
 			$out[0] = '';
 			$out[1] = 'row';
 		}
 	}else{
-			$out[0] = '';
-			$out[1] = '';
+		$out[0] = '';
+		$out[1] = '';
 	}
 	return $out;
 }
@@ -30,22 +30,22 @@ function b2046_scafolding($value, $custom_class){ // custom_class will come with
 function b2046_post_number($tmp_query, $values){
 	$output = array();
 	//~ mydump($values);
-		$args = array(
-			'posts_per_page' => (int)$values
+	$args = array(
+		'posts_per_page' => (int)$values
 		);
 		//~ rewrite the default data with our own
-		$output = $args;
+	$output = $args;
 	return $output;
 }
 
 //~ offset posts
 function b2046_post_offset($tmp_query, $values){
 	$output = array();
-		$args = array(
-			'offset' => $values
+	$args = array(
+		'offset' => $values
 		);
 		//~ rewrite the default data with our own
-		$output = $args;
+	$output = $args;
 	return $output;
 }
 
@@ -63,16 +63,102 @@ function b2046_taxonomy_parameters($tmp_query, $values){
 		$args =  array(
 			'tax_query' => array(
 				'relation' => $values[3], 
-				 array(
+				array(
 					'taxonomy' => $the_only_taxonomy,
 					'field' => 'id',
 					'terms' => $terms,
 					'operator' => $values[2]
+					)
+				)
+			);
+		$output = array_merge( $output, $args);
+	}
+	return $output;
+}
+function b2046_based_on_actual_taxonomy($tmp_query, $values){
+	$output = array();
+	$taxonomy = !empty($values[0]) ? $values[0] : 'category';
+	$operator = $values[1];
+	$relation = $values[2];
+	global $post;
+	
+	$term_list = wp_get_post_terms($post->ID, $taxonomy, array("fields" => "ids"));
+	$args =  array(
+		'tax_query' => array(
+			'relation' => $relation, 
+			array(
+				'taxonomy' => $taxonomy,
+				'field' => 'id',
+				'terms' => $term_list,
+				'operator' => $operator
 				)
 			)
 		);
-		$output = array_merge( $output, $args);
+
+	$output = array_merge( $output, $args);
+	return $output;
+}
+
+function b2046_meta($tmp_query, $values){
+	$output = array();
+	$args = array();
+	$key = $values[0];
+	$vals = $values[1];
+	$type = $values[2];
+	$compare = $values[3];
+	$compare_choices = array(
+		'0' => '=',
+		'1' => '!=',
+		'2' => '>',
+		'3' =>  '>=',
+		'4' =>  '<',
+		'5' =>  '<=',
+		'6' =>  'LIKE',
+		'7' =>  'NOT LIKE',
+		'8' =>  'IN',
+		'9' =>  'NOT IN',
+		'10' =>  'BETWEEN',
+		'11' =>  'NOT BETWEEN',
+		'12' =>  'EXISTS',
+		'13' =>  'NOT EXISTS'
+	);
+	$relation = $values[4];
+	// if the query has the meta call already, join the actual one to the existing one
+	if (isset($tmp_query['meta_query'])){
+		// revrite the realition to the actual one
+		$tmp_query['meta_query']['relation'] = $relation;
+		// define next meta query
+		$args_tmp = array(
+			'key' => $key,
+          	'value' => $vals, //array(3, 4),
+          	'type' => $type,
+          	'compare' => $compare_choices[$compare]
+		);
+		// add thew new meta query to the existing
+		array_push($tmp_query['meta_query'], $args_tmp);
+		// create the args
+		$args = array("meta_query" => $tmp_query['meta_query']);
+	}else{
+		$args = array(
+	   // 'meta_key' => 'age',
+		'meta_query' => array(
+			'relation' => $relation,
+			array(
+				'key' => $key,
+	          	'value' => $vals, //array(3, 4),
+	          	'type' => $type,
+	          	'compare' => $compare_choices[$compare],
+	           )
+			)
+		);
 	}
+	// $output = $output + $args;
+	$output = array_merge($output, $args);
+	return $output;
+}
+
+function b2046_based_on_actual_meta($tmp_query, $values){
+	$output = array();
 	return $output;
 }
 
@@ -85,13 +171,13 @@ function b2046_post_type($tmp_query, $values){
 
 	$args = array(
 		'post_type' => $values[0]
-	);
+		);
 	$output = array_merge( $output, $args);
 
 	if($values[1] == 1){
 		$paged = array(
 			'paged' => $paged
-		);
+			);
 		$output = array_merge( $args , $paged);
 	}
 	
@@ -100,11 +186,11 @@ function b2046_post_type($tmp_query, $values){
 //~  post status
 function b2046_post_status($tmp_query, $values){
 	$output = array();
-		$args = array(
-			'post_status' => $values
+	$args = array(
+		'post_status' => $values
 		);
 		//~ rewrite the default data with our own
-		$output =  $args;
+	$output =  $args;
 	return $output;
 }
 //~ category control
@@ -119,7 +205,7 @@ function b2046_category_controls($tmp_query, $values){
 	}
 	$args = array(
 		$control => $putre_cat_ids
-	);
+		);
 	//~ rewrite the default data with our own
 	$output =  $args;
 	return $output;
@@ -131,10 +217,11 @@ function b2046_category_controls($tmp_query, $values){
 function b2046_order($tmp_query, $values){
 	$order = $values[0];
 	$order_by = $values[1];
+
 	$args = array(
 		'order' => $order,
 		'orderby' => $order_by
-	);
+		);
 	return $args;
 }
 
@@ -165,7 +252,49 @@ function b2046_post_title($easy_query, $values){
 	if($scafold !='0'){
 		$out .= '</'.$scafold.'>';
 	}
-			
+
+	return $out;
+}
+function b2046_sidebar($easy_query, $values){
+	$out = '';
+
+	if(!empty($values[0])){
+		$out = get_dynamic_sidebar($values[0]);
+	}
+	return $out;
+}
+function b2046_post_author($easy_query, $values){
+	$linkType = $values[0];
+	$linkVar = $values[1]; 
+	$class = $values[2]; 
+	$link_choices = array( 
+		0 => 'ID',
+		1 => 'user_login',
+		2 => 'user_nicename',
+		3 => 'user_email',
+		4 => 'user_url',
+		5 => 'display_name'
+		);
+	$out = '';
+	$user = get_userdata($easy_query->post->post_author);
+
+	$out .= '<div class="'.$class.' '.$easy_query->post->display_name.'">';
+
+	// plain text
+	if($linkType == 0){
+		$out .= $user->$link_choices[$linkVar];
+	}
+	// link to authors post archive
+	elseif($linkType == 1){
+		$out .= '<a href="'.get_author_posts_url( $easy_query->post->post_author).'">'.$user->$link_choices[$linkVar].'</a>';
+	}
+	// link to authors url
+	else{
+		$out .= '<a href="'.$user->user_url.'">'.$user->$link_choices[$linkVar].'</a>';
+	}
+	
+	$out .= '</div>';
+
 	return $out;
 }
 
@@ -177,10 +306,10 @@ function b2046_post_content($easy_query, $values){
 	
 	$out = '<div class="entry-content '.$class.'">';
 	if($content_type == 'content'){
-			$out .= apply_filters('the_content',get_the_content());
+		$out .= apply_filters('the_content',get_the_content());
 	}
 	elseif($content_type == 'excerpt'){
-			$out .= get_the_excerpt();
+		$out .= get_the_excerpt();
 	}
 	elseif($content_type == 'above'){
 		global $post;
@@ -224,7 +353,7 @@ function b2046_post_taxonomies($easy_query, $values){
 				$out .= '<a href="'.$tax_link.'">'.$tax->name.'</a>'.$count;
 				if (end($terms) != $c){
 					$out .= ', ';
-					}
+				}
 			}
 			if(!empty($class)){
 				$out .='</div>';
@@ -255,12 +384,12 @@ function b2046_edit_link($easy_query, $values){
 	$value = $values[0];
 	$class = $values[1];
 	$out = '';
-		$link =  get_edit_post_link($easy_query->post->ID);
-		if($value == 0){
-			$out = '<a class="edit_link '.$class.'" href="'.$link.'">'.__('Edit').'</a>';
-		}else{
-			$out = '<span class="edit_link '.$class.'"><a href="'.$link.'">'.__('Edit').'</a> '.$easy_query->post->ID.'</span>';
-		}
+	$link =  get_edit_post_link($easy_query->post->ID);
+	if($value == 0){
+		$out = '<a class="edit_link '.$class.'" href="'.$link.'">'.__('Edit').'</a>';
+	}else{
+		$out = '<span class="edit_link '.$class.'"><a href="'.$link.'">'.__('Edit').'</a> '.$easy_query->post->ID.'</span>';
+	}
 	return $out;
 }
 
@@ -271,7 +400,7 @@ function b2046_post_image($easy_query, $values){
 	$link = $values[1];
 	$class = $values[2];
 	$out = '';
-	
+
 	$att_id =get_post_thumbnail_id($easy_query->post->ID);
 	
 	if($link == 'objectlink'){
@@ -323,43 +452,43 @@ function b2046_post_images($easy_query, $values){
 		'post_mime_type' => 'image',
 		'order' => $order,
 		'orderby' => $orderby
-	);
+		);
 	// if the do NOT want to include featured image in the gallery
 	if($featured_image_showhide == 1){
 		$g_args['post__not_in'] = array(get_post_thumbnail_id( $easy_query->post->ID ));
 	}
 	if($the_query->have_posts()){
 		while ( $the_query->have_posts() ) : $the_query->the_post();
-			$attachments = get_children($g_args);
+		$attachments = get_children($g_args);
 
 			//~ process all found
-			foreach($attachments as $key => $val) {
-				if(!empty($val->ID)){
-					$image_url = wp_get_attachment_image_src( $val->ID, $image);
-					$img_obj = wp_get_attachment_image_src( $val->ID, $link);
-					$url = $img_obj[0];
+		foreach($attachments as $key => $val) {
+			if(!empty($val->ID)){
+				$image_url = wp_get_attachment_image_src( $val->ID, $image);
+				$img_obj = wp_get_attachment_image_src( $val->ID, $link);
+				$url = $img_obj[0];
 
-					if(!empty($class)){
-						$out .= '<div class="'.$class.'">';
-					}
-					if($link != 'nolink'){
-						$out .= '<a href="'.$url.'">';
-					}
-					$the_title = '';
-					if ($title_value == 1){
-						$the_title = $val->post_title;
-					}elseif($title_value == 2){
-						$the_title = $val->post_excerpt;
-					}
-					$out .= '<img src="'.$image_url[0].'" title="'.$the_title.'" alt="'.$val->post_title.'" />';
-					if($link != 'nolink'){
-						$out .= '</a>';
-					}
-					if(!empty($class)){
-						$out .= '</div>';
-					}
+				if(!empty($class)){
+					$out .= '<div class="'.$class.'">';
+				}
+				if($link != 'nolink'){
+					$out .= '<a href="'.$url.'">';
+				}
+				$the_title = '';
+				if ($title_value == 1){
+					$the_title = $val->post_title;
+				}elseif($title_value == 2){
+					$the_title = $val->post_excerpt;
+				}
+				$out .= '<img src="'.$image_url[0].'" title="'.$the_title.'" alt="'.$val->post_title.'" />';
+				if($link != 'nolink'){
+					$out .= '</a>';
+				}
+				if(!empty($class)){
+					$out .= '</div>';
 				}
 			}
+		}
 		endwhile;
 	}
 	// Reset Post Data
@@ -376,7 +505,7 @@ function b2046_for_actual_postid($tmp_query, $values){
 	$args = array(
 		'post__in' => array($post->ID),
 		'post_type' => $post->post_type
-	);
+		);
 	return $args;
 }
 
@@ -423,11 +552,11 @@ function b2046_textfield($easy_query, $values){
 	$value = $values[0];
 	$class = $values[1];
 	$out = '';
-		if(!empty($value) && !empty($class)){
-			$out .= '<div class="'.$class.'">'.$value.'</div>';
-		}elseif(!empty($value)){
-			$out .= $value;
-		}
+	if(!empty($value) && !empty($class)){
+		$out .= '<div class="'.$class.'">'.$value.'</div>';
+	}elseif(!empty($value)){
+		$out .= $value;
+	}
 	return $out;
 }
 
@@ -469,11 +598,11 @@ function b2046_shortcode($easy_query, $values){
 	$value = $values[0];
 	$class = $values[1];
 	$out = '';
-		if(!empty($value) && !empty($class)){
-			$out .= '<div class="'.$class.'">'.do_shortcode($value).'</div>';
-		}elseif(!empty($value)){
-			$out .= do_shortcode($value);
-		}
+	if(!empty($value) && !empty($class)){
+		$out .= '<div class="'.$class.'">'.do_shortcode($value).'</div>';
+	}elseif(!empty($value)){
+		$out .= do_shortcode($value);
+	}
 	return $out;
 }
 
@@ -484,11 +613,11 @@ function b2046_shortcode($easy_query, $values){
 function b2046_comments_number($easy_query, $values){
 	$class = $values[0];
 	$out = '';
-		if(!empty($value) && !empty($class)){
-			$out .= '<div class="'.$class.'">'.get_comments_number($easy_query->post->ID).'</div>';
-		}elseif(!empty($value)){
-			$out .= get_comments_number($easy_query->post->ID);
-		}
+	if(!empty($value) && !empty($class)){
+		$out .= '<div class="'.$class.'">'.get_comments_number($easy_query->post->ID).'</div>';
+	}elseif(!empty($value)){
+		$out .= get_comments_number($easy_query->post->ID);
+	}
 	return $out;
 }
 
@@ -499,12 +628,12 @@ function b2046_comments_number($easy_query, $values){
 function b2046_comments_template($easy_query, $values){
 	$class = $values[0];
 	$out = '';
-		if(!empty($class)){
-			$out .= '<div class="'.$class.'">'.comments_template().'</div>';
-		}else{
-			$out .= comments_template();
-			
-		}
+	if(!empty($class)){
+		$out .= '<div class="'.$class.'">'.comments_template().'</div>';
+	}else{
+		$out .= comments_template();
+
+	}
 	return $out;
 }
 //~ 
@@ -516,7 +645,7 @@ function b2046_show_post_by_id($easy_query, $values){
 	if(!empty($values)){
 		$out = array(
 			'post__in' => Easy_2046_builder::f2046_id_cleaner_to_array($values)
-		);
+			);
 	}
 	
 	return $out;
@@ -549,7 +678,7 @@ function b2046_date($easy_query, $values){
 		}
 	}
 	$out .= '<div class="'.$class.'">';
-		$out .= $the_date;
+	$out .= $the_date;
 	$out .= '</div>';
 	return $out;
 	
@@ -567,14 +696,11 @@ function b2046_general_visibility($tmp_query, $values){
 	}
 	
 	if($values == 'all' || empty($values) ){
-		echo('true');
 		return true;
 		
 	}elseif(!empty($user_level) && $user_level >= $values ){
-		echo('true');
 		return true;
 	}else{
-		echo('false');
 		return false;
 	}
 }
@@ -633,19 +759,12 @@ function b2046_on_p_ID($tmp_query, $values){
 		$a = false; 
 		$b = true;
 	}
-
+	// if the post id is defined
 	if(!empty($values[1])){
-		global $wp_query;
+		global $post;
 		$output = true;
 		$pids = Easy_2046_builder::f2046_id_cleaner_to_array($values[1]);
-		$object_id = '';
-		if(isset($wp_query->query_vars['p'])){
-			$object_id = $wp_query->query_vars['p'];
-		}
-		elseif(isset($wp_query->query_vars['page_id'])){
-			$object_id = $wp_query->query_vars['page_id'];
-		}
-		
+		$object_id = $post->ID;
 		foreach($pids as $pid){
 			if($object_id == $pid || $object_id == $pid ){
 				$output = $a;
@@ -735,28 +854,83 @@ function b2046_WP_pagenavi($easy_query, $values){
 	wp_reset_postdata();	// avoid errors further down the page
 	return $output;
 }
-function b2046_previous_post_link($easy_query, $values){
-	$class = $values[1];
+
+// Previous post on current Easy loop
+function b2046_previous_posts_link($easy_query, $values){
+	
 	$output = '';
-	if(!empty($class)){
-		$output .= '<div class="'.$class.'">';
-	}
-	$output .= get_previous_posts_link($values[0]);
-	if(!empty($class)){
-		$output .= '</div>';
+	$previous_post_obj = get_previous_post();
+
+	// if previous post exists
+	if(isset($previous_post_obj->ID)){
+		$text = $values[0];
+		$class = $values[1];
+		if(!empty($class)){
+			$output .= '<div class="'.$class.'">';
+		}
+			//  check if they do not want to use their own string
+		if(!empty($text)){$text_string = $text;}else{$text_string = $previous_post_obj->post_title;}
+		$output .= '<a href="'.get_permalink( $previous_post_obj->ID ).'">'.$text_string.'</a>';
+		
+		if(!empty($class)){
+			$output .= '</div>';
+		}
 	}
 	return $output;
 }
-function b2046_next_post_link($easy_query, $values){
-	$class = $values[1];
-	if(!empty($class)){
-		$output .= '<div class="'.$class.'">';
-	}
-	$output = get_next_posts_link($values[0]);
-	if(!empty($class)){
-		$output .= '</div>';
+// Next post on current Easy loop
+function b2046_next_posts_link($easy_query, $values){
+	$output = '';
+	$next_post_obj = get_next_post();
+	// if the next page exist
+	if(isset($next_post_obj->ID)){
+		$text = $values[0];
+		$class = $values[1];
+		if(!empty($class)){
+			$output .= '<div class="'.$class.'">';
+		}
+			//  check if they do not want to use their own string
+		if(!empty($text)){$text_string = $text;}else{$text_string = $next_post_obj->post_title;}
+		$output .= '<a href="'.get_permalink( $next_post_obj->ID ).'">'.$text_string.'</a>';
+		if(!empty($class)){
+			$output .= '</div>';
+		}
 	}
 	return $output;
+}
+
+// Next post on current Easy loop
+function b2046_posts_nav_link($easy_query, $values){
+	$output = '';
+	$separator = (empty($values[0])) ? '&#8212;' : $values[0];
+	$prevlabel = (empty($values[1])) ? __('&laquo; Previous Page') : $values[1];
+	$nextlabel = (empty($values[2])) ? __('Next Page &raquo;') : $values[2];
+	$class =     (empty($values[3])) ? 'post_nav_link'          : $values[3];
+	
+	$output = '<div class="'.$class.'">'.get_previous_posts_link($prevlabel) . $separator . get_next_posts_link($nextlabel).'</div>';
+
+	return $output;
+}
+
+//~ 
+//~ CONTROL - finds the actual post id and ad it to the query
+//~ 
+function b2046_exclude_actual($tmp_query, $values){	
+	// get the global post object
+	global $post;
+	// check if the post__not_in is not emapty, if not then combine what we got already with the actual post
+	if(!empty($tmp_query['post__not_in'])){
+		$id_array = array_push($tmp_query['post__not_in'], $post->ID);
+	}
+	// 
+	else{
+		$id_array = array($post->ID);
+	}
+
+	$args = array(
+		'post__not_in' => $id_array
+		);
+	return $args;
 }
 
 
