@@ -29,7 +29,6 @@ function b2046_scafolding($value, $custom_class){ // custom_class will come with
  //~ change number of posts to be seen 
 function b2046_post_number($tmp_query, $values){
 	$output = array();
-	//~ mydump($values);
 	$args = array(
 		'posts_per_page' => (int)$values
 		);
@@ -51,7 +50,6 @@ function b2046_post_offset($tmp_query, $values){
 
 function b2046_taxonomy_parameters($tmp_query, $values){
 	$output = array();
-	//~ mydump($values);
 	//~ 0 - taxonomy
 	//~ 1 - terms
 	//~ 2 - term operator
@@ -236,7 +234,13 @@ function b2046_order($tmp_query, $values){
 function b2046_post_title($easy_query, $values){
 	$link = $values[0];
 	$scafold = $values[1];
-	$class = $values[2]; 
+	$target = ($values[2] == 'blank') ? ' target="_blank"' : '';
+	if(!empty($values[3])){
+		$customlink = get_post_meta($easy_query->post->ID, $values[3], true);
+	}else{
+		$customlink = '';
+	}
+	$class = $values[4]; 
 	$out = '';
 
 	if($scafold != '0'){
@@ -245,8 +249,10 @@ function b2046_post_title($easy_query, $values){
 	
 	if($link == 0){
 		$out .= get_the_title($easy_query->post->ID);
+	}elseif(!empty($customlink)){
+		$out .= '<a href="'.$customlink.'" '.$target.'>'.get_the_title($easy_query->post->ID).'</a>';
 	}else{
-		$out .= '<a href="'.get_permalink($easy_query->post->ID).'">'.get_the_title($easy_query->post->ID).'</a>';
+		$out .= '<a href="'.get_permalink($easy_query->post->ID).'" '.$target.'>'.get_the_title($easy_query->post->ID).'</a>';
 	}
 	
 	if($scafold !='0'){
@@ -398,32 +404,46 @@ function b2046_edit_link($easy_query, $values){
 function b2046_post_image($easy_query, $values){
 	$image = $values[0];
 	$link = $values[1];
-	$class = $values[2];
+	$target = ($values[2] == 'blank') ? ' target="_blank"' : '';
+	if(!empty($values[3])){
+		$customlink = get_post_meta($easy_query->post->ID, $values[3], true);
+	}else{
+		$customlink = '';
+	}
+	$class = $values[4];
 	$out = '';
 
-	$att_id =get_post_thumbnail_id($easy_query->post->ID);
+	$att_id = get_post_thumbnail_id($easy_query->post->ID);
 	
 	if($link == 'objectlink'){
 		$url = get_permalink($easy_query->post->ID);
-	}elseif($link != 'objectlink' || $link != 'nolink'){
+	}elseif($link == 'customlink'){
+		$url = $customlink;
+	}elseif($link != 'nolink'){
 		$img_obj = wp_get_attachment_image_src( $att_id, $link);
 		$url = $img_obj[0];
-	}
-	
+	}	
 	if(!empty($att_id)){
 		$image_url = wp_get_attachment_image_src( $att_id, $image);
 		if(!empty($class)){
 			$out .= '<div class="'.$class.'">';
 		}
-		if($link != 'nolink'){
-			$out .= '<a href="'.$url.'">';
-		}
+		//  create link if any
 		
+		if(!empty($url)){
+			if($link == 'objectlink' || $link == 'customlink'){
+				$out .= '<a href="'.$url.'" '.$target.'>';
+			}
+		}
+		// render out the picture
 		$out .= '<img src="'.$image_url[0].'" alt="'.get_the_title($easy_query->post->ID).'" />';
-		
-		if($link != 'nolink'){
-			$out .= '</a>';
+		// close the link
+		if(!empty($url)){
+			if($link == 'objectlink' || $link == 'customlink'){
+				$out .= '</a>';
+			}
 		}
+
 		if(!empty($class)){
 			$out .= '</div>';
 		}
@@ -706,27 +726,24 @@ function b2046_general_visibility($tmp_query, $values){
 }
 
 //~ 
-//~ Hide on view type
+//~ Show/Hide on view type
 //~ 
 function b2046_on_condition($tmp_query, $values){
 	global $wp_query;
 	$output = true;
 	//~  do not show on conditions
 	if($values[0] == 0 && isset($values[1])){
-		//~ $i = 1;
 		//~ check if the values against the global query
 		unset($values[0]);
 		foreach($values as $val){
-			if($wp_query->$val == 1){
-				$output = false;
-				//~ echo $output.' (' .$i.')<br>';
-				break;
-				
-			}else{
-				$output = true;
-				//~ echo $output .' (' .$i.')<br>';
+			if(isset($wp_query->$val)){
+				if($wp_query->$val == 1){
+					$output = false;
+					break;
+				}else{
+					$output = true;
+				}
 			}
-			//~ $i++;
 		}
 	}
 	//~ show on conditions
@@ -735,14 +752,11 @@ function b2046_on_condition($tmp_query, $values){
 		foreach($values as $val){
 			if($wp_query->$val == 1){
 				$output = true;
-				//~ echo $output.' (' .$i.')<br>';
 				
 			}else{
 				$output = false;
-				//~ echo $output .' (' .$i.')<br>';
 				break;
 			}
-			//~ $i++;
 		}
 	}
 	return $output;
@@ -752,13 +766,15 @@ function b2046_on_condition($tmp_query, $values){
 //~ Show on post, page, what ever id
 //~ 
 function b2046_on_p_ID($tmp_query, $values){
-	if($values[0] == 1){
+	// 1 = show
+	if($values[0] == '1'){
 		$a = true; 
 		$b = false;
 	}else{
 		$a = false; 
 		$b = true;
 	}
+
 	// if the post id is defined
 	if(!empty($values[1])){
 		global $post;
@@ -766,8 +782,9 @@ function b2046_on_p_ID($tmp_query, $values){
 		$pids = Easy_2046_builder::f2046_id_cleaner_to_array($values[1]);
 		$object_id = $post->ID;
 		foreach($pids as $pid){
-			if($object_id == $pid || $object_id == $pid ){
+			if($object_id == $pid){
 				$output = $a;
+				break;
 			}else{
 				$output = $b;
 			}
@@ -776,7 +793,83 @@ function b2046_on_p_ID($tmp_query, $values){
 	}else{
 		$output = true;
 	}
+	return $output;
+}
+
+function b2046_on_taxonomy($tmp_query, $values){
+	$output = false;
+	$taxonomy = !empty($values[0]) ? $values[0] : 'category';
+	$terms = Easy_2046_builder::f2046_id_cleaner_to_array($values[1]);
+	$showhide = $values[2];
+		
+	if($showhide == 'show'){
+		$a = true; 
+		$b = false;
+	}else{
+		$a = false; 
+		$b = true;
+	}
+	// get the terms form actual post
+	global $post;
+	$term_list = wp_get_post_terms($post->ID, $taxonomy, array("fields" => "ids"));
 	
+	if(!empty($terms)){
+		foreach($term_list as $term){
+			if(in_array($term, $terms)){
+				$output = $a;
+				break;
+			}else{
+				$output = $b;
+			}
+		}
+	}else{
+		$output = true;
+	}
+	return $output;
+}
+function b2046_on_hierarchy($tmp_query, $values){
+	$output = false; // true, false
+	$showhide = $values[0]; // show, hide
+	$type = $values[1]; // child - On child pages of defined ID, parent - On parent page of defined ID/s 
+	$IDs = Easy_2046_builder::f2046_id_cleaner_to_array($values[2]); // page ids (coverted to array)
+	$depth = $values[3]; // default 1
+	$include_exclude = $values[4]; // 0 - exclude, 1 - include
+	global $post;
+	$actualID = isset($post->ID) ? $post->ID : '';
+	if (!empty($actualID)){
+		$closestParent = $post->post_parent;
+		if($showhide == 'show'){
+			$a = true; 
+			$b = false;
+		}else{
+			$a = false; 
+			$b = true;
+		}
+		
+		if(!empty($IDs)){
+			// search through on child pages
+			if($type == 'child'){
+
+				$onPages = Easy_2046_builder::getChildren($IDs, $depth, $include_exclude);
+				// if the actual page is in the the list of allowed pages
+				if(in_array($actualID,$onPages)){
+					$output = $a;
+				}else{
+					$output = $b;
+				}
+				
+			}
+			// search through parent pages
+			else{
+				$parents = Easy_2046_builder::getParents($IDs, $depth, $include_exclude);
+				if(in_array($actualID,$parents)){
+					$output = $a;
+				}else{
+					$output = $b;
+				}
+			}
+		}
+	}
 	return $output;
 }
 
@@ -817,11 +910,11 @@ function b2046_hierarchy_based($tmp_query, $values){
 			}
 		}
 		//~ force the post type to be the same as the current page, or the given page ID
-		$output['post_type'] = $post->post_type;
+		// $output['post_type'] = $post->post_type;
 	//~ '2' => 'Child pages of current page',
 	}elseif($choice == 2){
 		$output['post_parent'] = $post->ID;
-		$output['post_type'] = $post->post_type;
+		// $output['post_type'] = $post->post_type;
 	}
 	//~ '1' => 'Pages from the same level as given ID',
 	elseif($choice == 1){
@@ -830,7 +923,7 @@ function b2046_hierarchy_based($tmp_query, $values){
 		}else{
 			$output['post_parent'] = '0';
 		}
-		$output['post_type'] = get_post_type($page_ids[0]);
+		//  $output['post_type'] = get_post_type($page_ids[0]);
 		if($xclude == 1){
 			$output['post__not_in'] = array($page_ids[0]); 
 		}
@@ -838,7 +931,7 @@ function b2046_hierarchy_based($tmp_query, $values){
 	//~ '3' => 'Child pages of given ID'
 	elseif($choice == 3){
 		$output['post_parent'] = $page_ids[0];
-		$output['post_type'] = get_post_type($page_ids[0]);
+		// $output['post_type'] = get_post_type($page_ids[0]);
 	}
 
 	return $output;

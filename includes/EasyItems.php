@@ -38,7 +38,8 @@ $args_types=array(
 // object title choices
 $object_title_choices =array(
 	'0' => __('no link'),
-	'1' => __('Link to "post"')
+	'1' => __('Link to "post"'),
+	'2' => __('Link to "custom meta"')
 );
 // Object title extrension choices
 $object_title_extension_choices = array(
@@ -80,6 +81,7 @@ $list_of_image_sizes = list_of_image_sizes();
 $image_links = array(
 	'nolink' => 'no link',
 	'objectlink' => 'object link',
+	'customlink' => 'custom meta value'
 );
 $image_links = array_merge($image_links, $list_of_image_sizes);
 
@@ -512,6 +514,90 @@ $EasyItems = array(
 			)
 		)
 	),
+	'b2046_on_taxonomy' => array(
+		'block' => 'resistor',  
+		'repeatable' => true,
+		'item_title' => __('On Taxonomy (Category)','p_2046s_easy_widget'),
+		// gui
+		'gui' => array(
+			array(
+				'ui_note' => 'only one taxonomy (name)',
+				'ui_type' => 'input', 
+				'esc' => 'filter_attribute_characters',
+				'choices' => '',
+				'value' => 'category'
+			),
+			array(
+				'ui_note' => 'terms IDs, separated by comma',
+				'ui_type' => 'input', 
+				'esc' => 'filter_number_space_dash',
+				'choices' => '',
+				'value' => ''
+			),
+			array(
+				'ui_note' => '',
+				'ui_type' => 'radio_group', 
+				'esc' => 'filter_attribute_characters',
+				'choices' => array(
+					'show' => 'show',
+					'hide' => 'hide',
+				),
+				'value' => 'show'
+			)
+		)
+	),
+	'b2046_on_hierarchy' => array(
+		'block' => 'resistor',  
+		'repeatable' => true,
+		'item_title' => __('Show/hide based on hierarchy','p_2046s_easy_widget'),
+		// gui
+		'gui' => array(
+			array(
+				'ui_note' => 'show or hide',
+				'ui_type' => 'radio_group', 
+				'esc' => 'filter_attribute_characters',
+				'choices' => array(
+					'show' => 'show',
+					'hide' => 'hide',
+				),
+				'value' => 'show'
+			),
+			array(
+				'ui_note' => 'Show on',
+				'ui_type' => 'radio_group', 
+				'esc' => 'filter_attribute_characters',
+				'choices' => array(
+						'child' => 'On child pages of defined IDs',
+						'parent' => 'On parent page of defined IDs',
+					),
+				'value' => 'child'
+			),
+			array(
+				'ui_note' => 'Page IDs, separated by comma',
+				'ui_type' => 'input', 
+				'esc' => 'filter_number_space_dash',
+				'choices' => '',
+				'value' => ''
+			),
+			array(
+				'ui_note' => 'Depth (default 1 level)',
+				'ui_type' => 'input', 
+				'esc' => 'filter_attribute_characters',
+				'choices' => '',
+				'value' => ''
+			),
+			array(
+				'ui_note' => 'including/excluding given IDs',
+				'ui_type' => 'radio_group', 
+				'esc' => 'filter_attribute_characters',
+				'choices' => array(
+					'exclude' => 'omit',
+					'include' => 'include',
+				),
+				'value' => 'exclude'
+			)
+		)
+	),
 	'b2046_meta' => array(
 		'block' => 'control',  
 		'repeatable' => true,
@@ -692,6 +778,23 @@ $EasyItems = array(
 				'value' => $object_title_extension_choices['h1']
 			),
 			array(
+				'ui_note' => __('Link taget','p_2046s_easy_widget'),
+				'ui_type' => 'select_box', 
+				'esc' => 'filter_attribute_characters',
+				'choices' => array(
+						'parent' => 'same window',
+						'blank' => 'new window', 
+					),
+				'value' => ''
+			),
+			array(
+				'ui_note' => __('custom meta value', 'p_2046s_easy_widget'),
+				'ui_type' => 'input', 
+				'esc' => 'filter_attribute_characters',
+				'choices' => '',
+				'value' => ''
+			),
+			array(
 				'ui_note' => __('custom class', 'p_2046s_easy_widget'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
@@ -847,7 +950,7 @@ $EasyItems = array(
 				'ui_type' => 'select_box', 
 				'esc' => 'esc_attr',
 				'choices' => $show_post_categories,
-				'value' => 0
+				'value' => '0'
 			),
 			array(
 				'ui_note' => __('taxonomy name', 'p_2046s_easy_widget'),
@@ -860,7 +963,7 @@ $EasyItems = array(
 				'ui_type' => 'radio_group', 
 				'esc' => 'esc_attr',
 				'choices' => array(0 => __('Do not show count'), 1 => __('Show count')),
-				'value' => 0
+				'value' => '0'
 			),
 			array(
 				'ui_note' => __('class', 'p_2046s_easy_widget'),
@@ -888,6 +991,23 @@ $EasyItems = array(
 				'ui_type' => 'select_box', 
 				'esc' => 'esc_attr',
 				'choices' => $image_links,
+				'value' => ''
+			),
+			array(
+				'ui_note' => __('Link taget','p_2046s_easy_widget'),
+				'ui_type' => 'select_box', 
+				'esc' => 'filter_attribute_characters',
+				'choices' => array(
+						'parent' => 'same window',
+						'blank' => 'new window', 
+					),
+				'value' => ''
+			),
+			array(
+				'ui_note' => __('custom field name','p_2046s_easy_widget'),
+				'ui_type' => 'input', 
+				'esc' => 'filter_attribute_characters',
+				'choices' => '',
 				'value' => ''
 			),
 			array(

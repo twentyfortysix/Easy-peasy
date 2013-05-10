@@ -1,12 +1,12 @@
-=== Easy ===
+	=== Easy ===
 Plugin name: Easy
 Contributors: o----o
 Plugin URI: http://wordpress.org/extend/easy
 Donate Link: http://2046.cz/
 Tags: admin, widget, loop, page, post, custom, type, taxonomy, tag, category, comments, content, drag, drop, gallery, image
 Requires at least: 3.4.1
-Tested up to: 3.5.1
-Stable tag: 0.8.9
+Tested up to: 3.6-beta1
+Stable tag: 0.9.4.4
 
 Easy, but complex widget website builder.
 
@@ -71,6 +71,9 @@ The aim of this plugin is to speed up common programming work, so we do not have
 Imagine a website made out of "sidebars" filled with widgets representing the list of last posts, menu, the image gallery, any content that is actually the website.
 All built out of widgets that you can re-arrange anyway you or your client like right out of the admin area. That is the main purpose of the widgets anyway, Easy makes it real.
 
+= Notice =
+In order to have the website fast as light even with the Easy plugin heavily in charge use the W3TC caching plugin [[1](http://wordpress.org/extend/plugins/w3-total-cache/)]
+
 = Documentation =
 
  * <a href="http://2046.cz/easy/">Easy</a>
@@ -110,6 +113,40 @@ Always back up your widgets, do not let the sky fall. Use the <a href="http://wo
 1. Screenshot of the version 0.5
 
 == Change log ==
+
+= 0.9.4.4 = 
+ * FIX - calls for undefined values in process of "On templeta type" brick
+ * FIX - Hierarchical brick - the depth no loger goes too deep.. in other words the depth can be set up to 9999... and it wont consume more time than the actual hierarchy structure needs for the process. The page will simply go faster, the hoster stops to hate you,.. if you over exaggerated.
+
+= 0.9.4.3 = 
+ * FIX - a typo causes the media library disapear, sorry for that. 
+
+= 0.9.4.2 = 
+ * FIX - .. guess what .. Show/hide based on hierarchical structure got mad on 404 page
+
+= 0.9.4.1 = 
+ * FIX - Show/hide based on hierarchical structure got mad on home page
+
+= 0.9.4 = 
+ * FIX - resitors have wrong user input sorting, it mismatched the values
+ * NEW - CONTROL - Resistor - Show/hide based on hierarchical structure
+ 
+= 0.9.3 =
+ * NEW - CONTROL - you can control on what taxonomy (category) the result will be shown
+ * NEW - CONTROL - the controllers that act as resistors have a "R" mark
+ 
+= 0.9.2.1 = 
+ * NEW - VIEW - new "target" option for links "Featured image" brick and "Title" brick
+
+= 0.9.2 =
+ * NEW - VIEW - "Title" brick can be a link to custom field value
+ * NEW - VIEW - "Featured image" brick can be a link to custom field value
+ {If you have not used Featured image bricks and title bricks class fields, you can stay cool, otherwise You have to reset all your Featured image bricks and title bricks (after the update - the class values will shift to a custom field values..)}
+
+= 0.9.1 =
+ * the Hierarchical CONTROL no longer forces to the query "page" type. The type have to be set explicitly!
+ * FIX - show-hide on ID - there was a bug when multipple IDs where defined.
+ 
 = 0.9 =
 * FIX - Featured image did not point to where it has to !!! you should deactivate and reactivate the plugin, in order to see all image versions as they exists. Otherwise you'll se a weird mix of "same" sizes !!!
 

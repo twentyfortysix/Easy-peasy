@@ -55,7 +55,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', end
 .easy_2046_lw #control_container strong, .easy_2046_lw #view_container strong{color:#2F5392;}
 .easy_2046_lw .control_h3{margin:-2em 0 0 315px;}/* fix for the alignment */
 .easy_2046_lw .control_bank *, .easy_2046_lw .view_bank *, .easy_2046_lw .general_bank .rem{display:none;}
-.easy_2046_lw .control_bank ul, .easy_2046_lw .view_bank ul, .easy_2046_lw .control_bank li, .easy_2046_lw .view_bank li, .easy_2046_lw .control_bank strong, .easy_2046_lw .view_bank strong{display:block}
+.easy_2046_lw .control_bank ul, .easy_2046_lw .view_bank ul, .easy_2046_lw .control_bank li, .easy_2046_lw .view_bank li, .easy_2046_lw .control_bank strong, .easy_2046_lw .view_bank strong,
+.easy_2046_lw .control_bank .res, .easy_2046_lw .view_bank .res
+{display:inline-block}
+.res{background:rgb(98, 143, 155);color:#fff;padding:0 0.3em;margin:0 0.3em 0 0;-webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px;}
+h3 .res{margin:0;}
 .easy_2046_lw .view_bank li, .easy_2046_lw .control_bank li{width:88%;margin-left:1em;}
 
 .ew2046_check_box{margin-bottom:0.3em}
@@ -77,5 +81,5 @@ li.li_5 {margin-top:-1em}
 
 @media screen and (-webkit-min-device-pixel-ratio:0) { 
 	.easy_2046_lw .general_bank li{width: 48%;float: left;}
-	.easy_2046_lw ol li, .easy_2046_lw #view_container li,.easy_2046_lw #control_container li{width:100%}
+	.easy_2046_lw ol li, .easy_2046_lw #view_container li,.easy_2046_lw #control_container li{width:96%}
 }
