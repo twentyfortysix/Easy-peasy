@@ -815,6 +815,13 @@ $EasyItems = array(
 				'value' => $content_choices['content']
 			),
 			array(
+				'ui_type' => 'input', 
+				'ui_note' => __('Read more text', 'p_2046s_easy_widget'),
+				'esc' => 'filter_attribute_characters',
+				'choices' => '',
+				'value' => ''
+			),
+			array(
 				'ui_note' => __('class', 'p_2046s_easy_widget'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
@@ -915,6 +922,29 @@ $EasyItems = array(
 				'esc' => 'filter_attribute_characters',
 				'choices' => $post_statuses,
 				'value' => 'publish'
+			)
+		)
+	),
+	'b2046_by_author' => array(
+		'block' => 'control',  
+		'repeatable' => false,
+		'item_title' => __('By author','p_2046s_easy_widget'),
+		'gui' => array(
+			array(
+				'ui_type' => 'select_box', 
+				// 'ui_note' => __('Authors ID(s)', 'p_2046s_easy_widget'),
+				'esc' => 'filter_number',
+				'choices' => array(
+					0 => 'by ID(only one)',
+					1 => 'author of current post content'),
+				'value' => '0'
+			),
+			array(
+				'ui_type' => 'input', 
+				// 'ui_note' => __('Authors ID(s)', 'p_2046s_easy_widget'),
+				'esc' => 'filter_attribute_characters',
+				'choices' => '',
+				'value' => ''
 			)
 		)
 	),

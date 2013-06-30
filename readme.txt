@@ -1,4 +1,4 @@
-	=== Easy ===
+=== Easy ===
 Plugin name: Easy
 Contributors: o----o
 Plugin URI: http://wordpress.org/extend/easy
@@ -6,7 +6,7 @@ Donate Link: http://2046.cz/
 Tags: admin, widget, loop, page, post, custom, type, taxonomy, tag, category, comments, content, drag, drop, gallery, image
 Requires at least: 3.4.1
 Tested up to: 3.6-beta1
-Stable tag: 0.9.4.4
+Stable tag: 0.9.4.6
 
 Easy, but complex widget website builder.
 
@@ -83,6 +83,9 @@ In order to have the website fast as light even with the Easy plugin heavily in 
  * <a href="http://2046.cz/easy/control">Control description</a>
  * <a href="http://2046.cz/easy/extend">Extend</a>
 
+ = Compatible with: =
+ <a href="http://wpml.org/">WPML</a>, <a href="http://wordpress.org/plugins/qtranslate/">qTranslate</a>, <a href="https://www.google.com/url?q=http://wordpress.org/plugins/custom-content-type-manager/&sa=U&ei=R-DNUcKJIM2B4AT7xoGwDQ&ved=0CAcQFjAA&client=internal-uds-cse&usg=AFQjCNE2SU-CT1WLx80VKYlh4e1w6ZIcbg">CCTM</a>, <a href="http://wordpress.org/plugins/wp-pagenavi/">WP-pagenavi</a>, <a href="http://wordpress.org/plugins/w3-total-cache/">W3TC</a>, <a href="http://wordpress.org/plugins/fancybox-for-wordpress/">fancybox</a> and others.
+
 == Installation ==
 
 As usual. If you don't know how, check out the <a href="http://codex.wordpress.org/Managing_Plugins">official how-to</a>.
@@ -104,15 +107,24 @@ It is possible and even more, it's easy. Check out the documentation <a href="ht
 
 == Upgrade Notice ==
 
-Please if you encounter any misbehavior, let my know on the forum. I'll be happy to fix it!
-
-Always back up your widgets, do not let the sky fall. Use the <a href="http://wordpress.org/extend/plugins/widget-saver/">Widget saver</a> plugin.
+* Please if you encounter any misbehavior, let my know on the forum. I'll be happy to fix it!
+* If the widget behaves differently after the upgrade check out the particullar brick, if it hasn't have some new feature(s), which did not exist before. If so, correct values and re-save the widget.
+* Always back up your widgets, do not let the sky fall. Use the <a href="http://wordpress.org/extend/plugins/widget-saver/">Widget saver</a> plugin.
 
 == Screenshots ==
  
 1. Screenshot of the version 0.5
 
 == Change log ==
+
+= 0.9.4.6 = 
+ * FIX a small fix on line 893, nothing cruicial
+ * FIX - GLOBAL - class "one per row" has been multiplied
+ * FIX - the edit link has been visible to non-logged in users (the edit did not point to admin area, but the html has been visible)
+
+= 0.9.4.5 = 
+ * NEW - VIEW - Content brick has input filed wherre you can set the "Read more" text wich run through localization filter for the possible localizations.
+ * NEW - CONTROL - filter posts made by an author xyz.
 
 = 0.9.4.4 = 
  * FIX - calls for undefined values in process of "On templeta type" brick

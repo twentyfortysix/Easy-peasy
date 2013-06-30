@@ -307,25 +307,28 @@ function b2046_post_author($easy_query, $values){
 //~ This extension si to build contet or excerpt,...
 function b2046_post_content($easy_query, $values){
 	$content_type = $values[0];
-	$class = $values[1];
+	$readmore = $values[1];
+	$class = $values[2];
 	$morestring = '<!--more-->';
 	
 	$out = '<div class="entry-content '.$class.'">';
 	if($content_type == 'content'){
-		$out .= apply_filters('the_content',get_the_content());
+		$out .= (!empty($readmore)) ? apply_filters('the_content',get_the_content(__($readmore))) : apply_filters('the_content',get_the_content());
 	}
 	elseif($content_type == 'excerpt'){
-		$out .= get_the_excerpt();
+		$out .= (!empty($readmore)) ? get_the_excerpt(__($readmore)) : get_the_excerpt();
 	}
 	elseif($content_type == 'above'){
 		global $post;
 		$explodemore = explode($morestring, $post->post_content);
 		$out .= $explodemore[0];
+		$out .= (!empty($readmore)) ? '<a class="more-link" href="'.get_permalink($post->ID).'">'.__($readmore).'</a>' : '';
 	}
 	elseif($content_type == 'below'){
 		global $post;
 		$explodemore = explode($morestring, $post->post_content);
 		$out .= $explodemore[1];
+		$out .= (!empty($readmore)) ? '<a class="more-link" href="'.get_permalink($post->ID).'">'.__($readmore).'</a>' : '';
 	}
 	$out .= '</div>';
 	return $out;
@@ -391,10 +394,12 @@ function b2046_edit_link($easy_query, $values){
 	$class = $values[1];
 	$out = '';
 	$link =  get_edit_post_link($easy_query->post->ID);
-	if($value == 0){
-		$out = '<a class="edit_link '.$class.'" href="'.$link.'">'.__('Edit').'</a>';
-	}else{
-		$out = '<span class="edit_link '.$class.'"><a href="'.$link.'">'.__('Edit').'</a> '.$easy_query->post->ID.'</span>';
+	if(is_user_logged_in()){
+		if($value == 0){
+			$out = '<a class="edit_link '.$class.'" href="'.$link.'">'.__('Edit').'</a>';
+		}else{
+			$out = '<span class="edit_link '.$class.'"><a href="'.$link.'">'.__('Edit').'</a> '.$easy_query->post->ID.'</span>';
+		}
 	}
 	return $out;
 }
@@ -796,6 +801,27 @@ function b2046_on_p_ID($tmp_query, $values){
 	return $output;
 }
 
+//~ 
+//~ CONTROL - posts by author xyz
+//~ 
+function b2046_by_author($tmp_query, $values){
+	$choice = $values[0];
+	global $post;
+	//  if they want to show the post made by particular author, defined by ids
+	if($choice == 0){
+		$user_id = $values[1];
+	}
+	// if the author has to be taken from the current post
+	else{
+		$user_id = ($post->post_author);
+	}
+
+	$args = array(
+		'author' => $user_id
+		);
+	return $args;
+}
+
 function b2046_on_taxonomy($tmp_query, $values){
 	$output = false;
 	$taxonomy = !empty($values[0]) ? $values[0] : 'category';
@@ -1011,7 +1037,7 @@ function b2046_posts_nav_link($easy_query, $values){
 function b2046_exclude_actual($tmp_query, $values){	
 	// get the global post object
 	global $post;
-	// check if the post__not_in is not emapty, if not then combine what we got already with the actual post
+	// check if the post__not_in is not empty, if not then combine what we got already with the actual post
 	if(!empty($tmp_query['post__not_in'])){
 		$id_array = array_push($tmp_query['post__not_in'], $post->ID);
 	}

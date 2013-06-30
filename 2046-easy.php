@@ -3,7 +3,7 @@
  * Plugin name: Easy
  * Plugin URI: http://wordpress.org/extend/plugins/easy/
  * Description: Easy, but complex GUI website builder.
- * Version: 0.9.4.4
+ * Version: 0.9.4.6
  * Author: 2046
  * Author URI: http://2046.cz
  *
@@ -185,7 +185,10 @@ Easy_2046_builder::$EasyQuery = array(
 			//~ if(empty($permissions) || $permissions == 'all' || current_user_can( $permissions )){
 				
 				if($easy_query->have_posts()) :
-				
+					// one per row
+					if($b2046_scafold_type == 1){
+						$class .= $b2046_scafolding_column_class;
+					}
 					//~ many per row
 					if($b2046_scafold_type == 2){
 						$output .= '<div class="'.$b2046_scafold_row_class.'">';
@@ -208,7 +211,6 @@ Easy_2046_builder::$EasyQuery = array(
 						//~ scafold check
 						if($b2046_scafold_type == 1){
 							$output .= '<div class="'.$b2046_scafold_row_class.'">';
-							$class .= $b2046_scafolding_column_class;
 						}
 						
 						$output .= '<div id="post-'.get_the_ID().'" class="'.$class.'"'; 
@@ -890,8 +892,10 @@ Easy_2046_builder::$EasyQuery = array(
 					    'post_status' => 'any'
 					);
 					$kids = get_pages($defaults);
-					foreach($kids as $kid){
-						$pages[] = $kid->ID;
+					if (is_object($kids)){
+						foreach($kids as $kid){
+							$pages[] = $kid->ID;
+						}
 					}
 					$pages = array_unique($pages);
 				}
