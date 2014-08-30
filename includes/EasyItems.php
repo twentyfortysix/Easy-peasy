@@ -37,13 +37,13 @@ $args_types=array(
 
 // object title choices
 $object_title_choices =array(
-	'0' => __('no link'),
-	'1' => __('Link to "post"'),
-	'2' => __('Link to "custom meta"')
+	'0' => __('no link', 'builder_2046'),
+	'1' => __('Link to "post"', 'builder_2046'),
+	'2' => __('Link to "custom meta"', 'builder_2046')
 );
 // Object title extrension choices
 $object_title_extension_choices = array(
-	'0' => 'raw text',
+	'0' => __('raw text', 'builder_2046'),
 	'h1' => 'h1',
 	'h2' => 'h2',
 	'h3' => 'h3',
@@ -53,24 +53,24 @@ $object_title_extension_choices = array(
 );
 // Specify scafolding type tpes
 $scafolding_types =array(
-	'0' => __('Default scaffolding'),
-	'1' => __('One per row'),
-	'2' => __('Many per row')
+	'0' => __('Default scaffolding', 'builder_2046'),
+	'1' => __('One per row', 'builder_2046'),
+	'2' => __('Many per row', 'builder_2046')
 	); // default, one per row, many per row
 	
 $content_choices = array(
-	'content'=>'content',
-	'excerpt'=>'excerpt',
-	'above' => 'above more tag',
-	'below' => 'below more tag',
+	'content'=>__('content', 'builder_2046'),
+	'excerpt'=>__('excerpt', 'builder_2046'),
+	'above' => __('above more tag', 'builder_2046'),
+	'below' => __('below more tag', 'builder_2046'),
 );
 
 //~ 
 //~ show categories as
 //~
 $show_post_categories = array(
-	'0' => 'links',
-	'1' => 'list'
+	'0' => __('links', 'builder_2046'),
+	'1' => __('list', 'builder_2046')
 );
 
 //~ 
@@ -79,9 +79,10 @@ $show_post_categories = array(
 $list_of_image_sizes = list_of_image_sizes();
 
 $image_links = array(
-	'nolink' => 'no link',
-	'objectlink' => 'object link',
-	'customlink' => 'custom meta value'
+	'nolink' => __('no link', 'builder_2046'),
+	'objectlink' => __('object link', 'builder_2046'),
+	'customlink' => __('custom meta value', 'builder_2046'),
+	'url' => 'url'
 );
 $image_links = array_merge($image_links, $list_of_image_sizes);
 
@@ -89,19 +90,19 @@ $image_links = array_merge($image_links, $list_of_image_sizes);
 //~ Meta show choices
 //~ 
 $meta_show_choices = array(
-	'0' => 'text',
-	'1' => 'list',
+	'0' => __('text', 'builder_2046'),
+	'1' => __('list', 'builder_2046'),
 );
 $post_statuses = array(
-	'publish' => 'publish', //a published post or page.
-	'pending' => 'pending', //post is pending review.
-	'draft' => 'draft', //a post in draft status.
-	'auto-draft' => 'auto-draft', //- a newly created post, with no content.
-	'future' => 'future', //- a post to publish in the future.
-	'private' =>'private', //- not visible to users who are not logged in.
-	'inherit' => 'inherit', //- a revision. see get_children.
-	'trash' => 'trash', //- post is in trashbin (available with Version 2.9).
-	'any' => 'any'
+	'publish' => __('publish'), //a published post or page.
+	'pending' => __('pending'), //post is pending review.
+	'draft' => __('draft'), //a post in draft status.
+	'auto-draft' => __('auto-draft'), //- a newly created post), with no content.
+	'future' => __('future'), //- a post to publish in the future.
+	'private' =>__('private'), //- not visible to users who are not logged in.
+	'inherit' => __('inherit'), //- a revision. see get_children.
+	'trash' => __('trash'), //- post is in trashbin (available with Version 2.9).
+	'any' => __('any')
 );
 //~ categoris control
 $category_controls = array(
@@ -115,81 +116,81 @@ $conditional_tags_array = array(
 	array(
 		'ui_type' => 'radio_group', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 		'choices' => array(
-			'1' => 'show when',
-			'0' => 'hide when'
+			'1' => __('show when', 'builder_2046'),
+			'0' => __('hide when', 'builder_2046')
 		),	
 		'value' => '1',
 		'esc' => 'filter_number'
 	),
 	array('ui_type' => 'check_box',
-		'choices' => array('is_home' => 'home'),
+		'choices' => array('is_home' => __('home', 'builder_2046')),
 		'value' => '',
 		'esc' => 'filter_attribute_characters'
 	),
 	array('ui_type' => 'check_box',
-		'choices' => array('is_front_page' => 'front page'),
+		'choices' => array('is_front_page' => __('front page', 'builder_2046')),
 		'value' => '',
 		'esc' => 'filter_attribute_characters'
 	),
 	array('ui_type' => 'check_box',
-		'choices' => array('is_single' => 'single'),
+		'choices' => array('is_single' => __('single', 'builder_2046')),
 		'value' => '',
 		'esc' => 'filter_attribute_characters'
 	),
 	array('ui_type' => 'check_box',
-		'choices' => array('is_page' => 'page'),
+		'choices' => array('is_page' => __('page','builder_2046')),
 		'value' => '',
 		'esc' => 'filter_attribute_characters'
 	),
 	array('ui_type' => 'check_box',
-		'choices' => array('is_sticky' => 'sticky'),
+		'choices' => array('is_sticky' => __('sticky', 'builder_2046')),
 		'value' => '',
 		'esc' => 'filter_attribute_characters'
 	),
 	array('ui_type' => 'check_box',
-		'choices' => array('is_category' => 'category'),
+		'choices' => array('is_category' => __('category', 'builder_2046')),
 		'value' => '',
 		'esc' => 'filter_attribute_characters'
 	),
 	array('ui_type' => 'check_box',
-		'choices' => array('is_tax' => 'taxonomy archive'),
+		'choices' => array('is_tax' => __('taxonomy archive', 'builder_2046')),
 		'value' => '',
 		'esc' => 'filter_attribute_characters'
 	),
 	array('ui_type' => 'check_box',
-		'choices' => array('is_archive' => 'archive'),
+		'choices' => array('is_archive' => __('archive', 'builder_2046')),
 		'value' => '',
 		'esc' => 'filter_attribute_characters'
 	),
 	array('ui_type' => 'check_box',
-		'choices' => array('is_search' => 'search result'),
+		'choices' => array('is_search' => __('search result', 'builder_2046')),
 		'value' => '',
 		'esc' => 'filter_attribute_characters'
 	),
 	array('ui_type' => 'check_box',
-		'choices' => array('is_404' => '404 error'),
+		'choices' => array('is_404' => __('404 error', 'builder_2046')),
 		'value' => '',
 		'esc' => 'filter_attribute_characters'
 	),
 	array('ui_type' => 'check_box',
-		'choices' => array('is_attachment' => 'attachment page'),
+		'choices' => array('is_attachment' => __('attachment page', 'builder_2046')),
 		'value' => '',
 		'esc' => 'filter_attribute_characters'
 	)
 );
 //~ sorting choices
 $sorting_choices = array(
-	'Sort by' => 'Sort by',
-	'ID' => 'ID',  
-	'title' => 'title', 
-	'date' => 'date',
-	'modified' => 'modified',
-	'rand' => 'rand',
-	'comment_count' => 'comment_count',
-	'menu_order' => 'menu_order',
-	'parent' => 'parent',
-	'meta_value' => 'meta_value',
-	'meta_value_num' => 'meta_value_num'
+	'Sort by' => __('Sort by', 'builder_2046'),
+	'ID' => __('ID', 'builder_2046'),  
+	'title' => __('title', 'builder_2046'), 
+	'date' => __('date', 'builder_2046'),
+	'modified' => __('modified', 'builder_2046'),
+	'rand' => __('rand', 'builder_2046'),
+	'comment_count' => __('comment_count', 'builder_2046'),
+	'menu_order' => __('menu_order', 'builder_2046'),
+	'parent' => __('parent', 'builder_2046'),
+	'meta_value' => __('meta_value', 'builder_2046'),
+	'meta_value_num' => __('meta_value_num', 'builder_2046')
 );
 
 // ------------------------------------------------------------------- // 
@@ -200,18 +201,18 @@ $EasyItems = array(
 	'b2046_category_controls' => array(
 		'block' => 'control',  
 		'repeatable' => true,
-		'item_title' => __('Category','p_2046s_easy_widget'),
+		'item_title' => __('Category', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Control by','p_2046s_easy_widget'),
+				'ui_note' => __('Control by', 'builder_2046'),
 				'ui_type' => 'select_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => $category_controls,
 				'value' => 'cat',
 				'esc' => 'filter_save_characters'
 			),
 			array(
-				'ui_note' => __('cat IDs (separate by coma)', 'p_2046s_easy_widget'),
+				'ui_note' => __('cat IDs (separate by coma)', 'builder_2046'),
 				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' => '',
@@ -224,11 +225,11 @@ $EasyItems = array(
 	'b2046_title' => array(
 		'position' => 15,
 		'block' => 'general',  
-		'item_title' => __('Widget admin title','p_2046s_easy_widget'),
+		'item_title' => __('Widget admin title', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Admin widget title', 'p_2046s_easy_widget'),
+				'ui_note' => __('Admin widget title', 'builder_2046'),
 				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' => '',
@@ -241,11 +242,11 @@ $EasyItems = array(
 	'b2046_scafold_type' => array(
 		'position' =>10,
 		'block' => 'general',  
-		'item_title' => __('Surrounding widget scafold type','p_2046s_easy_widget'),
+		'item_title' => __('Surrounding widget scafold type', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Select type','p_2046s_easy_widget'),
+				'ui_note' => __('Select type', 'builder_2046'),
 				'ui_type' => 'select_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => $scafolding_types,
 				'value' => $scafolding_types[0],
@@ -256,11 +257,11 @@ $EasyItems = array(
 	'b2046_widget_title' => array(
 		'position' => 5,
 		'block' => 'general',  
-		'item_title' => __('Widget frontend title','p_2046s_easy_widget'),
+		'item_title' => __('Widget frontend title', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Rendered before the loop', 'p_2046s_easy_widget'),
+				'ui_note' => __('Rendered before the loop', 'builder_2046'),
 				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' => '',
@@ -272,11 +273,11 @@ $EasyItems = array(
 	'b2046_scafold_row_class' => array(
 		'position' => 25,
 		'block' => 'general',  
-		'item_title' => __('','p_2046s_easy_widget'),
+		'item_title' => __('', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('row class', 'p_2046s_easy_widget'),
+				'ui_note' => __('row class', 'builder_2046'),
 				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' => '',
@@ -288,11 +289,11 @@ $EasyItems = array(
 	'b2046_note' => array(
 		'position' => 35,
 		'block' => 'general',  
-		'item_title' => __('Widget description','p_2046s_easy_widget'),
+		'item_title' => __('Widget description', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Widget intention. Used for administrative purposes.', 'p_2046s_easy_widget'),
+				'ui_note' => __('Widget intention. Used for administrative purposes.', 'builder_2046'),
 				'ui_type' => 'textarea', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' => '',
@@ -304,11 +305,11 @@ $EasyItems = array(
 	'b2046_scafolding_column_class' => array(
 		'position' => 30,
 		'block' => 'general',  
-		'item_title' => __('','p_2046s_easy_widget'),
+		'item_title' => __('', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('each (column) class', 'p_2046s_easy_widget'),
+				'ui_note' => __('each (column) class', 'builder_2046'),
 				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' => '',
@@ -322,11 +323,11 @@ $EasyItems = array(
 		// general
 		'block' => 'resistor',  
 		'repeatable' => false,
-		'item_title' => __('Permissions','p_2046s_easy_widget'),
+		'item_title' => __('Permissions', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Who will be able to see the widget result.','p_2046s_easy_widget'),
+				'ui_note' => __('Who will be able to see the widget result.', 'builder_2046'),
 				'ui_type' => 'select_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea. 6 hidden
 				'choices' => $levels,
 				'value' => '',
@@ -338,28 +339,53 @@ $EasyItems = array(
 		// general
 		'block' => 'resistor',  
 		'repeatable' => false,
-		'item_title' => __('On template types: show / hide','p_2046s_easy_widget'),
+		'item_title' => __('On template types: show / hide', 'builder_2046'),
 		// gui
 		'gui' => $conditional_tags_array
+	),
+	'b2046_on_post_type' => array( 
+		// general
+		'block' => 'resistor',  
+		'repeatable' => true,
+		'item_title' => __('On Post types: show/hide', 'builder_2046'),
+		// gui
+		'gui' => array(
+			array(
+				'ui_note' => __('post, page, etc.', 'builder_2046'),
+				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea. 6 hidden
+				'choices' => '',
+				'value' => '',
+				'esc' => 'filter_attribute_characters'
+			),
+			array(
+				'ui_type' => 'select_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea. 6 hidden
+				'choices' => array(
+					'true' => __('show', 'builder_2046'),
+					'false' => __('hide', 'builder_2046')
+					),
+				'value' => '',
+				'esc' => 'filter_attribute_characters'
+			)
+		),
 	),
 	'b2046_on_p_ID' => array( 
 		// general
 		'block' => 'resistor',  
 		'repeatable' => true,
-		'item_title' => __('On ID: show / hide','p_2046s_easy_widget'),
+		'item_title' => __('On ID: show / hide', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
 				'ui_type' => 'radio_group', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => array(
-					'1' => 'show when',
-					'0' => 'hide when'
+					'1' => __('show when', 'builder_2046'),
+					'0' => __('hide when', 'builder_2046')
 				),	
 				'value' => '1',
 				'esc' => 'filter_number'
 			),
 			array(
-				'ui_note' => __('IDs. Separed by comma','p_2046s_easy_widget'),
+				'ui_note' => __('IDs. Separed by comma', 'builder_2046'),
 				'ui_type' => 'input', 
 				'choices' => '',
 				'value' => '',
@@ -371,11 +397,11 @@ $EasyItems = array(
 	'b2046_post_type' => array(
 		'block' => 'control',  
 		'repeatable' => false,
-		'item_title' => __('Post type','p_2046s_easy_widget'),
+		'item_title' => __('Post type', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => 'post, page, attachment,..',
+				'ui_note' => __('post, page, attachment,..', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_save_characters',
 				'choices' => '',
@@ -394,8 +420,8 @@ $EasyItems = array(
 				'ui_type' => 'radio_group', 
 				'esc' => 'filter_number',
 				'choices' => array(
-					'1' => 'affected by page number',
-					'0' => 'not affected'
+					'1' => __('affected by page number', 'builder_2046'),
+					'0' => __('not affected', 'builder_2046')
 				),
 				'value' => '1'
 			)
@@ -405,11 +431,11 @@ $EasyItems = array(
 	'b2046_show_post_by_id' => array(
 		'block' => 'control',  
 		'repeatable' => false,
-		'item_title' => __('Show only (by ID)','p_2046s_easy_widget'),
+		'item_title' => __('Show only (by ID)', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('post / page / custom IDs (separate by coma)', 'p_2046s_easy_widget'),
+				'ui_note' => __('post / page / custom IDs (separate by coma)', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_number_space_dash',
 				'choices' => '',
@@ -418,14 +444,65 @@ $EasyItems = array(
 		)
 	),
 	// post_types
-	'b2046_exclude_actual' => array(
+	'b2046_show_by_date' => array(
 		'block' => 'control',  
 		'repeatable' => false,
-		'item_title' => __('Exclude actual post/page','p_2046s_easy_widget'),
+		'item_title' => __('By date', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Exclude currently displayed post/page from this Easy loop', 'p_2046s_easy_widget'),
+				'ui_note' => __('4 digit year', 'builder_2046'),
+				'ui_type' => 'input', 
+				'esc' => 'filter_number',
+				'choices' => '',
+				'value' => ''
+			),
+			array(
+				'ui_note' => __('Month number (from 1 to 12)' , 'builder_2046'),
+				'ui_type' => 'input', 
+				'esc' => 'filter_number',
+				'choices' => '',
+				'value' => ''
+			),
+			array(
+				'ui_note' => __('Week of the year (from 0 to 53)', 'builder_2046'),
+				'ui_type' => 'input', 
+				'esc' => 'filter_number',
+				'choices' => '',
+				'value' => ''
+			),
+			array(
+				'ui_note' => __('Day of the month (from 1 to 31)', 'builder_2046'),
+				'ui_type' => 'input', 
+				'esc' => 'filter_number',
+				'choices' => '',
+				'value' => ''
+			),
+			array(
+				'ui_note' => __('before (2 month ago)', 'builder_2046'),
+				'ui_type' => 'input', 
+				'esc' => 'filter_attribute_characters',
+				'choices' => '',
+				'value' => ''
+			),
+			array(
+				'ui_note' => __('after (1 month ago)', 'builder_2046'),
+				'ui_type' => 'input', 
+				'esc' => 'filter_attribute_characters',
+				'choices' => '',
+				'value' => ''
+			),
+		)
+	),
+	// post_types
+	'b2046_exclude_actual' => array(
+		'block' => 'control',  
+		'repeatable' => false,
+		'item_title' => __('Exclude actual post/page', 'builder_2046'),
+		// gui
+		'gui' => array(
+			array(
+				'ui_note' => __('Exclude currently displayed post/page from this Easy loop', 'builder_2046'),
 				'ui_type' => 'hidden', 
 				'esc' => 'filter_number_space_dash',
 				'choices' => '',
@@ -436,18 +513,18 @@ $EasyItems = array(
 	'b2046_taxonomy_parameters' => array(
 		'block' => 'control',  
 		'repeatable' => true,
-		'item_title' => __('Taxonomy','p_2046s_easy_widget'),
+		'item_title' => __('Taxonomy', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => 'only one taxonomy (name)',
+				'ui_note' => __('only one taxonomy (name)', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
 				'value' => 'category'
 			),
 			array(
-				'ui_note' => 'terms IDs, separated by comma',
+				'ui_note' => __('terms IDs, separated by comma', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_number_space_dash',
 				'choices' => '',
@@ -455,11 +532,11 @@ $EasyItems = array(
 			),
 			//~ operator for each term / //~ 'IN', 'NOT IN', 'AND'
 			array(
-				'ui_note' => 'terms operator',
+				'ui_note' => __('terms operator', 'builder_2046'),
 				'ui_type' => 'radio_group', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => array(
-					'AND' => 'AND (operator)',
+					'AND' => 'AND '.__('(operator)'),
 					'IN' => 'IN',
 					'NOT IN' => 'NOT IN'
 				),
@@ -467,11 +544,11 @@ $EasyItems = array(
 			),
 			//~ relation between multiple taxonomies
 			array(
-				'ui_note' => 'Taxonomy relation. If you use multiple taxonomy bricks, the later relation beats previous ones.',
+				'ui_note' => __('Taxonomy relation. If you use multiple taxonomy bricks, the later relation beats previous ones.', 'builder_2046'),
 				'ui_type' => 'radio_group', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => array(
-					'AND' => 'AND (relation)',
+					'AND' => 'AND '.__('(relation)'),
 					'OR' => 'OR'
 				),
 				'value' => 'OR'
@@ -480,22 +557,22 @@ $EasyItems = array(
 	),'b2046_based_on_actual_taxonomy' => array(
 		'block' => 'control',  
 		'repeatable' => true,
-		'item_title' => __('Taxonomy match','p_2046s_easy_widget'),
+		'item_title' => __('Taxonomy match', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => 'only one taxonomy (name)',
+				'ui_note' => __('only one taxonomy (name)', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
 				'value' => 'category'
 			),
 			array(
-				'ui_note' => 'terms operator',
+				'ui_note' => __('terms operator', 'builder_2046'),
 				'ui_type' => 'radio_group', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => array(
-					'AND' => 'AND (operator)',
+					'AND' => 'AND '.__('(operator)'),
 					'IN' => 'IN',
 					'NOT IN' => 'NOT IN'
 				),
@@ -503,11 +580,11 @@ $EasyItems = array(
 			),
 			//~ relation between multiple taxonomies
 			array(
-				'ui_note' => 'Taxonomy relation. If you use multiple taxonomy bricks, the later relation beats previous ones.',
+				'ui_note' => __('Taxonomy relation. If you use multiple taxonomy bricks, the later relation beats previous ones.', 'builder_2046'),
 				'ui_type' => 'radio_group', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => array(
-					'AND' => 'AND (relation)',
+					'AND' => 'AND '.__('(relation)'),
 					'OR' => 'OR'
 				),
 				'value' => 'OR'
@@ -517,18 +594,18 @@ $EasyItems = array(
 	'b2046_on_taxonomy' => array(
 		'block' => 'resistor',  
 		'repeatable' => true,
-		'item_title' => __('On Taxonomy (Category)','p_2046s_easy_widget'),
+		'item_title' => __('On Taxonomy (Category)', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => 'only one taxonomy (name)',
+				'ui_note' => __('only one taxonomy (name)', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
 				'value' => 'category'
 			),
 			array(
-				'ui_note' => 'terms IDs, separated by comma',
+				'ui_note' => __('terms IDs, separated by comma', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_number_space_dash',
 				'choices' => '',
@@ -539,8 +616,8 @@ $EasyItems = array(
 				'ui_type' => 'radio_group', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => array(
-					'show' => 'show',
-					'hide' => 'hide',
+					'show' => __('show', 'builder_2046'),
+					'hide' => __('hide', 'builder_2046'),
 				),
 				'value' => 'show'
 			)
@@ -549,7 +626,7 @@ $EasyItems = array(
 	'b2046_on_hierarchy' => array(
 		'block' => 'resistor',  
 		'repeatable' => true,
-		'item_title' => __('Show/hide based on hierarchy','p_2046s_easy_widget'),
+		'item_title' => __('Show/hide based on hierarchy', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
@@ -557,30 +634,30 @@ $EasyItems = array(
 				'ui_type' => 'radio_group', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => array(
-					'show' => 'show',
-					'hide' => 'hide',
+					'show' => __('show', 'builder_2046'),
+					'hide' => __('hide', 'builder_2046'),
 				),
 				'value' => 'show'
 			),
 			array(
-				'ui_note' => 'Show on',
+				'ui_note' => __('Show on', 'builder_2046'),
 				'ui_type' => 'radio_group', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => array(
-						'child' => 'On child pages of defined IDs',
-						'parent' => 'On parent page of defined IDs',
+						'child' => __('On child pages of defined IDs', 'builder_2046'),
+						'parent' => __('On parent page of defined IDs', 'builder_2046'),
 					),
 				'value' => 'child'
 			),
 			array(
-				'ui_note' => 'Page IDs, separated by comma',
+				'ui_note' => __('Page IDs, separated by comma', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_number_space_dash',
 				'choices' => '',
 				'value' => ''
 			),
 			array(
-				'ui_note' => 'Depth (default 1 level)',
+				'ui_note' => __('Depth (default 1 level)', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
@@ -591,8 +668,8 @@ $EasyItems = array(
 				'ui_type' => 'radio_group', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => array(
-					'exclude' => 'omit',
-					'include' => 'include',
+					'exclude' => __('omit', 'builder_2046'),
+					'include' => __('include', 'builder_2046'),
 				),
 				'value' => 'exclude'
 			)
@@ -601,18 +678,18 @@ $EasyItems = array(
 	'b2046_meta' => array(
 		'block' => 'control',  
 		'repeatable' => true,
-		'item_title' => __('Meta','p_2046s_easy_widget'),
+		'item_title' => __('Meta', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => 'Meta key',
+				'ui_note' => __('Meta key', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
 				'value' => ''
 			),
 			array(
-				'ui_note' => 'Meta value',
+				'ui_note' => __('Meta value', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
@@ -672,7 +749,7 @@ $EasyItems = array(
 	/*'b2046_based_on_actual_meta' => array(
 		'block' => 'control',  
 		'repeatable' => true,
-		'item_title' => __('Meta match','p_2046s_easy_widget'),
+		'item_title' => __('Meta match', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
@@ -716,7 +793,7 @@ $EasyItems = array(
 	'b2046_link_to_archive' => array(
 		'block' => 'view',  
 		'repeatable' => true,
-		'item_title' => __('Link to archive','p_2046s_easy_widget'),
+		'item_title' => __('Link to archive', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
@@ -729,28 +806,28 @@ $EasyItems = array(
 				'value' => 'taxonomy'
 			),
 			array(
-				'ui_note' => 'Taxonomy or Post type name',
+				'ui_note' => __('Taxonomy or Post type name', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_save_characters',
 				'choices' => '',
 				'value' => 'category'
 			),
 			array(
-				'ui_note' => 'term ID (in case of Taxonomy)',
+				'ui_note' => __('term ID (in case of Taxonomy)', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_number_space_dash',
 				'choices' => '',
 				'value' => ''
 			),
 			array(
-				'ui_note' => 'Link text',
+				'ui_note' => __('Link text', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'esc_attr',
 				'choices' => '',
 				'value' => 'Link to archive ..'
 			),
 			array(
-				'ui_note' => __('custom class', 'p_2046s_easy_widget'),
+				'ui_note' => __('custom class', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_save_characters',
 				'choices' => '',
@@ -761,7 +838,7 @@ $EasyItems = array(
 	
 	'b2046_post_title' => array(
 		'block' => 'view',  
-		'item_title' => __('Title','p_2046s_easy_widget'),
+		'item_title' => __('Title', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
@@ -771,31 +848,31 @@ $EasyItems = array(
 				'value' => $object_title_choices[0]
 			),
 			array(
-				'ui_note' => __('Scafolding', 'p_2046s_easy_widget'),
+				'ui_note' => __('Scafolding', 'builder_2046'),
 				'ui_type' => 'select_box', 
 				'esc' => 'filter_save_characters',
 				'choices' => $object_title_extension_choices,
 				'value' => $object_title_extension_choices['h1']
 			),
 			array(
-				'ui_note' => __('Link taget','p_2046s_easy_widget'),
+				'ui_note' => __('Link taget', 'builder_2046'),
 				'ui_type' => 'select_box', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => array(
-						'parent' => 'same window',
-						'blank' => 'new window', 
+						'parent' => __('same window', 'builder_2046'),
+						'blank' => __('new window', 'builder_2046'), 
 					),
 				'value' => ''
 			),
 			array(
-				'ui_note' => __('custom meta value', 'p_2046s_easy_widget'),
+				'ui_note' => __('custom meta value', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
 				'value' => ''
 			),
 			array(
-				'ui_note' => __('custom class', 'p_2046s_easy_widget'),
+				'ui_note' => __('custom class', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
@@ -805,7 +882,7 @@ $EasyItems = array(
 	),
 	'b2046_post_content' => array(
 		'block' => 'view',  
-		'item_title' => __('Content','p_2046s_easy_widget'),
+		'item_title' => __('Content', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
@@ -816,13 +893,41 @@ $EasyItems = array(
 			),
 			array(
 				'ui_type' => 'input', 
-				'ui_note' => __('Read more text', 'p_2046s_easy_widget'),
+				'ui_note' => __('Read more text', 'builder_2046'),
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
 				'value' => ''
 			),
 			array(
-				'ui_note' => __('class', 'p_2046s_easy_widget'),
+				'ui_note' => __('class', 'builder_2046'),
+				'ui_type' => 'input', 
+				'esc' => 'filter_attribute_characters',
+				'choices' => '',
+				'value' => ''
+			)
+		)
+	),
+	'b2046_bootstrap_menu' => array(
+		'block' => 'view',  
+		'item_title' => __('Bootstrap3 menu', 'builder_2046'),
+		// gui
+		'gui' => array(
+			array(
+				'ui_type' => 'input', 
+				'ui_note' => __('Menu location', 'builder_2046'),
+				'esc' => 'filter_attribute_characters',
+				'choices' => '',
+				'value' => ''
+			),
+			array(
+				'ui_type' => 'input', 
+				'ui_note' => __('Menu name, ID', 'builder_2046'),
+				'esc' => 'filter_attribute_characters',
+				'choices' => '',
+				'value' => ''
+			),
+			array(
+				'ui_note' => __('class', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
@@ -832,11 +937,11 @@ $EasyItems = array(
 	),
 	'b2046_sidebar' => array(
 		'block' => 'view',  
-		'item_title' => __('Sidebar','p_2046s_easy_widget'),
+		'item_title' => __('Sidebar', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Sidebar ID', 'p_2046s_easy_widget'),
+				'ui_note' => __('Sidebar ID', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
@@ -846,16 +951,16 @@ $EasyItems = array(
 	),
 	'b2046_post_author' => array(
 		'block' => 'view',  
-		'item_title' => __('Author','p_2046s_easy_widget'),
+		'item_title' => __('Author', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
 				'ui_type' => 'select_box', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => array( 
-					0 => 'plain text',
-					1 => 'link to authors posts',
-					2 => 'link to authors url',
+					0 => __('plain text', 'builder_2046'),
+					1 => __('link to authors posts', 'builder_2046'),
+					2 => __('link to authors url', 'builder_2046'),
 				),
 				'value' => '0'
 			),
@@ -873,7 +978,7 @@ $EasyItems = array(
 				'value' => '0'
 			),
 			array(
-				'ui_note' => __('custom class', 'p_2046s_easy_widget'),
+				'ui_note' => __('custom class', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
@@ -884,11 +989,11 @@ $EasyItems = array(
 	'b2046_post_number' => array(
 		'block' => 'control',  
 		'repeatable' => false,
-		'item_title' => __('Number','p_2046s_easy_widget'),
+		'item_title' => __('Number', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Number of objects.', 'p_2046s_easy_widget'),
+				'ui_note' => __('Number of objects.', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_number',
 				'choices' => '',
@@ -899,11 +1004,11 @@ $EasyItems = array(
 	'b2046_post_offset' => array(
 		'block' => 'control',  
 		'repeatable' => false,
-		'item_title' => __('Offset','p_2046s_easy_widget'),
+		'item_title' => __('Offset', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Number', 'p_2046s_easy_widget'),
+				'ui_note' => __('Number', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_number',
 				'choices' => '',
@@ -914,7 +1019,7 @@ $EasyItems = array(
 	'b2046_post_status' => array(
 		'block' => 'control',  
 		'repeatable' => false,
-		'item_title' => __('Status','p_2046s_easy_widget'),
+		'item_title' => __('Status', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
@@ -928,20 +1033,21 @@ $EasyItems = array(
 	'b2046_by_author' => array(
 		'block' => 'control',  
 		'repeatable' => false,
-		'item_title' => __('By author','p_2046s_easy_widget'),
+		'item_title' => __('By author', 'builder_2046'),
 		'gui' => array(
 			array(
 				'ui_type' => 'select_box', 
-				// 'ui_note' => __('Authors ID(s)', 'p_2046s_easy_widget'),
+				// 'ui_note' => __('Authors ID(s)', 'builder_2046'),
 				'esc' => 'filter_number',
 				'choices' => array(
-					0 => 'by ID(only one)',
-					1 => 'author of current post content'),
+					0 => __('by ID(only one)', 'builder_2046'),
+					1 => __('author of current post content', 'builder_2046')
+				),
 				'value' => '0'
 			),
 			array(
 				'ui_type' => 'input', 
-				// 'ui_note' => __('Authors ID(s)', 'p_2046s_easy_widget'),
+				// 'ui_note' => __('Authors ID(s)', 'builder_2046'),
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
 				'value' => ''
@@ -951,7 +1057,7 @@ $EasyItems = array(
 	'b2046_order' => array(
 		'block' => 'control',  
 		'repeatable' => false,
-		'item_title' => __('Order','p_2046s_easy_widget'),
+		'item_title' => __('Order', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
@@ -968,12 +1074,18 @@ $EasyItems = array(
 				'esc' => 'esc_attr',
 				'choices' => $sorting_choices,
 				'value' => 'none'
+			),array(
+				'ui_note' => __('meta key', 'builder_2046'),
+				'ui_type' => 'input', 
+				'esc' => 'esc_attr',
+				'choices' => '',
+				'value' => ''
 			)
 		)
 	),
 	'b2046_post_taxonomies' => array(
 		'block' => 'view',  
-		'item_title' => __('Taxonomies (Categories)','p_2046s_easy_widget'),
+		'item_title' => __('Taxonomies (Categories)', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
@@ -983,7 +1095,7 @@ $EasyItems = array(
 				'value' => '0'
 			),
 			array(
-				'ui_note' => __('taxonomy name', 'p_2046s_easy_widget'),
+				'ui_note' => __('taxonomy name', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'esc_attr',
 				'choices' => '',
@@ -996,7 +1108,7 @@ $EasyItems = array(
 				'value' => '0'
 			),
 			array(
-				'ui_note' => __('class', 'p_2046s_easy_widget'),
+				'ui_note' => __('class', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'esc_attr',
 				'choices' => '',
@@ -1006,25 +1118,25 @@ $EasyItems = array(
 	),
 	'b2046_post_image' => array(
 		'block' => 'view',  
-		'item_title' => __('Featured image','p_2046s_easy_widget'),
+		'item_title' => __('Featured image', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Get featured image.','p_2046s_easy_widget'),
+				'ui_note' => __('Get featured image.', 'builder_2046'),
 				'ui_type' => 'select_box', 
 				'esc' => 'esc_attr',
 				'choices' => $list_of_image_sizes,
 				'value' => ''
 			),
 			array(
-				'ui_note' => __('Link image to','p_2046s_easy_widget'),
+				'ui_note' => __('Link image to', 'builder_2046'),
 				'ui_type' => 'select_box', 
 				'esc' => 'esc_attr',
 				'choices' => $image_links,
 				'value' => ''
 			),
 			array(
-				'ui_note' => __('Link taget','p_2046s_easy_widget'),
+				'ui_note' => __('Link taget', 'builder_2046'),
 				'ui_type' => 'select_box', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => array(
@@ -1034,14 +1146,14 @@ $EasyItems = array(
 				'value' => ''
 			),
 			array(
-				'ui_note' => __('custom field name','p_2046s_easy_widget'),
+				'ui_note' => __('custom field name OR url', 'builder_2046'),
 				'ui_type' => 'input', 
-				'esc' => 'filter_attribute_characters',
+				'esc' => 'esc_attr',
 				'choices' => '',
 				'value' => ''
 			),
 			array(
-				'ui_note' => __('class', 'p_2046s_easy_widget'),
+				'ui_note' => __('class', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'esc_attr',
 				'choices' => '',
@@ -1052,18 +1164,18 @@ $EasyItems = array(
 	//~ n Images from the selected posts
 	'b2046_post_images' => array(
 		'block' => 'view',  
-		'item_title' => __('Post gallery','p_2046s_easy_widget'),
+		'item_title' => __('Post gallery', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Image size','p_2046s_easy_widget'),
+				'ui_note' => __('Image size', 'builder_2046'),
 				'ui_type' => 'select_box', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => $list_of_image_sizes,
 				'value' => ''
 			),
 			array(
-				'ui_note' => __('Link image to','p_2046s_easy_widget'),
+				'ui_note' => __('Link image to', 'builder_2046'),
 				'ui_type' => 'select_box', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => $list_of_image_sizes,
@@ -1073,8 +1185,8 @@ $EasyItems = array(
 				'ui_type' => 'select_box', 
 				'esc' => 'esc_attr',
 				'choices' => array(
-					'ASC' => 'Ascendingly',
-					'DESC' => 'Descendingly'
+					'ASC' => __('Ascendingly', 'builder_2046'),
+					'DESC' => __('Descendingly', 'builder_2046')
 				),
 				'value' => 'DESC'
 			),
@@ -1088,9 +1200,9 @@ $EasyItems = array(
 				'ui_type' => 'select_box', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => array(
-					'0' => 'empty title attribute',
-					'1' => 'image as image title attribute',
-					'2' => 'caption as image title attribute',
+					'0' => __('empty title attribute', 'builder_2046'),
+					'1' => __('image as image title attribute', 'builder_2046'),
+					'2' => __('caption as image title attribute', 'builder_2046'),
 				),
 				'value' => 'none'
 			),
@@ -1098,13 +1210,13 @@ $EasyItems = array(
 				'ui_type' => 'select_box', 
 				'esc' => 'filter_number',
 				'choices' => array(
-					'0' => 'include featured image',
-					'1' => 'exclude featured image'
+					'0' => __('include featured image', 'builder_2046'),
+					'1' => __('exclude featured image', 'builder_2046')
 				),
 				'value' => '0'
 			),
 			array(
-				'ui_note' => __('class', 'p_2046s_easy_widget'),
+				'ui_note' => __('class', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'esc_attr',
 				'choices' => '',
@@ -1114,7 +1226,7 @@ $EasyItems = array(
 	),
 	'b2046_edit_link' => array(
 		'block' => 'view',  
-		'item_title' => __('Edit link','p_2046s_easy_widget'),
+		'item_title' => __('Edit link', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
@@ -1127,7 +1239,7 @@ $EasyItems = array(
 				'value' => 0
 			),
 			array(
-				'ui_note' => __('class', 'p_2046s_easy_widget'),
+				'ui_note' => __('class', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
@@ -1137,39 +1249,39 @@ $EasyItems = array(
 	),
 	'b2046_object_meta' => array(
 		'block' => 'view',  
-		'item_title' => __('Meta','p_2046s_easy_widget'),
+		'item_title' => __('Meta', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Show as', 'p_2046s_easy_widget'),
+				'ui_note' => __('Show as', 'builder_2046'),
 				'ui_type' => 'select_box', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => $meta_show_choices,
 				'value' => ''
 			),
 			array(
-				'ui_note' => __('meta key', 'p_2046s_easy_widget'),
+				'ui_note' => __('meta key', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
 				'value' => ''
 			),
 			//~ array(
-				//~ 'ui_note' => __('meta value', 'p_2046s_easy_widget'),
+				//~ 'ui_note' => __('meta value', 'builder_2046'),
 				//~ 'ui_type' => 'input', 
 				//~ 'esc' => 'esc_attr',
 				//~ 'choices' => '',
 				//~ 'value' => ''
 			//~ ),
 			array(
-				'ui_note' => __('separator', 'p_2046s_easy_widget'),
+				'ui_note' => __('separator', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'esc_attr',
 				'choices' => '',
 				'value' => ''
 			),
 			array(
-				'ui_note' => __('class', 'p_2046s_easy_widget'),
+				'ui_note' => __('class', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
@@ -1179,18 +1291,18 @@ $EasyItems = array(
 	),
 	'b2046_textfield' => array(
 		'block' => 'view',  
-		'item_title' => __('Text','p_2046s_easy_widget'),
+		'item_title' => __('Text', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Some text', 'p_2046s_easy_widget'),
+				'ui_note' => __('Some text', 'builder_2046'),
 				'ui_type' => 'textarea', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' => '',
 				'esc' => 'wp_kses_post'
 			),
 			array(
-				'ui_note' => __('class', 'p_2046s_easy_widget'),
+				'ui_note' => __('class', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
@@ -1201,11 +1313,11 @@ $EasyItems = array(
 	),
 	'b2046_query_debug' => array(
 		'block' => 'control',  
-		'item_title' => __('Debug controls','p_2046s_easy_widget'),
+		'item_title' => __('Debug controls', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Debug will output the Query made by control bricks ABOVE this debug brick!</br></br>See the out put on frontend.', 'p_2046s_easy_widget'),
+				'ui_note' => __('Debug will output the Query made by control bricks ABOVE this debug brick!</br></br>See the out put on frontend.', 'builder_2046'),
 				'ui_type' => 'hidden', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' => 1,
@@ -1217,11 +1329,11 @@ $EasyItems = array(
 	'b2046_for_actual_postid' => array(
 		'block' => 'control',  
 		'repeatable' => false,
-		'item_title' => __('For actual post/page','p_2046s_easy_widget'),
+		'item_title' => __('For actual post/page', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('It will "guess" the actual post and show the VIEW content for it', 'p_2046s_easy_widget'),
+				'ui_note' => __('It will "guess" the actual post and show the VIEW content for it', 'builder_2046'),
 				'ui_type' => 'hidden', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' => 1,
@@ -1233,31 +1345,44 @@ $EasyItems = array(
 	//~ hyerarchical control
 	'b2046_hierarchy_based' => array(
 		'block' => 'control',  
-		'item_title' => __('Hierarchy based','p_2046s_easy_widget'),
+		'item_title' => __('Hierarchy based', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
 				'ui_type' => 'select_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => array(
-						'0' => 'Pages from the same level as current page',
-						'1' => 'Pages from the same level as given ID',
-						'2' => 'Child pages of current page',
-						'3' => 'Child pages of given ID'
+						'0' => __('Pages from the same level as current page', 'builder_2046'),
+						'1' => __('Pages from the same level as given ID', 'builder_2046'),
+						'2' => __('Child pages of current page', 'builder_2046'),
+						'3' => __('Child pages of given ID', 'builder_2046')
 					),
 				'value' => 0,
 				'esc' => 'filter_number'
 			),
 			array(
-				'ui_note' => __('given ID, only one', 'p_2046s_easy_widget'),
+				'ui_note' => __('given ID, only one', 'builder_2046'),
 				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' => '',
 				'esc' => 'filter_number'
 			),
 			array(
-				'ui_note' => __('(in case of: ..from same level)', 'p_2046s_easy_widget'),
-				'ui_type' => 'check_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
-				'choices' => array( 1 => 'Exclude current'),
+				'ui_note' => __('(in case of: ..from same level)', 'builder_2046'),
+				'ui_type' => 'select_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
+				'choices' => array( 
+					0 => __('Include current', 'builder_2046'),
+					1 => __('Exclude current', 'builder_2046')
+					),
+				'value' => '',
+				'esc' => 'filter_attribute_characters'
+			),
+			array(
+				// 'ui_note' => __('(Sometimes in general use listing of top level pages is not desired.)', 'builder_2046'),
+				'ui_type' => 'select_box', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
+				'choices' => array( 
+					0 => __('List top level pages', 'builder_2046'),
+					1 => __('Do not list top level pages', 'builder_2046')
+					),
 				'value' => '',
 				'esc' => 'filter_attribute_characters'
 			)
@@ -1266,18 +1391,18 @@ $EasyItems = array(
 	),
 	'b2046_shortcode' => array(
 		'block' => 'view',  
-		'item_title' => __('Shortcode','p_2046s_easy_widget'),
+		'item_title' => __('Shortcode', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('[shortcode]', 'p_2046s_easy_widget'),
+				'ui_note' => __('[shortcode]', 'builder_2046'),
 				'ui_type' => 'textarea', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' => '',
 				'esc' => 'esc_attr'
 			),
 			array(
-				'ui_note' => __('class', 'p_2046s_easy_widget'),
+				'ui_note' => __('class', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
@@ -1287,11 +1412,11 @@ $EasyItems = array(
 	),
 	'b2046_comments_number' => array(
 		'block' => 'view',  
-		'item_title' => __('Comments number','p_2046s_easy_widget'),
+		'item_title' => __('Comments number', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('class', 'p_2046s_easy_widget'),
+				'ui_note' => __('class', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_number',
 				'choices' => '',
@@ -1301,11 +1426,11 @@ $EasyItems = array(
 	),
 	'b2046_comments_template' => array(
 		'block' => 'view',  
-		'item_title' => __('Comments','p_2046s_easy_widget'),
+		'item_title' => __('Comments', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('class', 'p_2046s_easy_widget'),
+				'ui_note' => __('class', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
@@ -1315,15 +1440,15 @@ $EasyItems = array(
 	),
 	'b2046_date' => array(
 		'block' => 'view',  
-		'item_title' => __('Date','p_2046s_easy_widget'),
+		'item_title' => __('Date', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
 				'ui_type' => 'select_box', 
 				'esc' => 'filter_letter',
 				'choices' => array(
-						'published' => 'published',
-						'modifed' => 'modified',
+						'published' => __('published', 'builder_2046'),
+						'modifed' => __('modified', 'builder_2046'),
 					),
 				'value' => 'published'
 			),
@@ -1336,14 +1461,14 @@ $EasyItems = array(
 				//~ 'value' => '1'
 			//~ ),
 			array(
-				'ui_note' => __('PHP date format', 'p_2046s_easy_widget'),
+				'ui_note' => __('PHP date format', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'esc_attr',
 				'choices' => '',
 				'value' => 'D. M. Y'
 			),
 			array(
-				'ui_note' => __('class', 'p_2046s_easy_widget'),
+				'ui_note' => __('class', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
@@ -1353,11 +1478,11 @@ $EasyItems = array(
 	),
 	'b2046_WP_pagenavi' => array(
 		'block' => 'view_after',  
-		'item_title' => __('WP-Pagenavi','p_2046s_easy_widget'),
+		'item_title' => __('WP-Pagenavi', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('<a href="http://wordpress.org/extend/plugins/wp-pagenavi/">WP-Pagenavi</a> works when the plugin is installed and active.<br />The navigation will be placed automatically after the View content.', 'p_2046s_easy_widget'),
+				'ui_note' => __('<a href="http://wordpress.org/extend/plugins/wp-pagenavi/">WP-Pagenavi</a> works when the plugin is installed and active.<br />The navigation will be placed automatically after the View content.', 'builder_2046'),
 				'ui_type' => 'hidden', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' => 1,
@@ -1367,18 +1492,18 @@ $EasyItems = array(
 	),
 	'b2046_previous_posts_link' => array(
 		'block' => 'view_after',  
-		'item_title' => __('Link to previous post','p_2046s_easy_widget'),
+		'item_title' => __('Link to previous post', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Previous text - Post name if empty', 'p_2046s_easy_widget'),
+				'ui_note' => __('Previous text - Post name if empty', 'builder_2046'),
 				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' =>'',
 				'esc' => 'esc_attr'
 			),
 			array(
-				'ui_note' => __('class', 'p_2046s_easy_widget'),
+				'ui_note' => __('class', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
@@ -1389,18 +1514,18 @@ $EasyItems = array(
 	),
 	'b2046_next_posts_link' => array(
 		'block' => 'view_after',  
-		'item_title' => __('Link to next post','p_2046s_easy_widget'),
+		'item_title' => __('Link to next post', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Next text - Post name if empty', 'p_2046s_easy_widget'),
+				'ui_note' => __('Next text - Post name if empty', 'builder_2046'),
 				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' =>'',
 				'esc' => 'esc_attr'
 			),
 			array(
-				'ui_note' => __('class', 'p_2046s_easy_widget'),
+				'ui_note' => __('class', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',
@@ -1410,32 +1535,32 @@ $EasyItems = array(
 	),
 	'b2046_posts_nav_link' => array(
 		'block' => 'view_after',  
-		'item_title' => __('Navigation (Prev/Next links)','p_2046s_easy_widget'),
+		'item_title' => __('Navigation (Prev/Next links)', 'builder_2046'),
 		// gui
 		'gui' => array(
 			array(
-				'ui_note' => __('Separator', 'p_2046s_easy_widget'),
+				'ui_note' => __('Separator', 'builder_2046'),
 				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' =>'',
 				'esc' => 'esc_attr'
 			),
 			array(
-				'ui_note' => __('Prev label', 'p_2046s_easy_widget'),
+				'ui_note' => __('Prev label', 'builder_2046'),
 				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' =>'',
 				'esc' => 'esc_attr'
 			),
 			array(
-				'ui_note' => __('Next label', 'p_2046s_easy_widget'),
+				'ui_note' => __('Next label', 'builder_2046'),
 				'ui_type' => 'input', // 0 input, 1 select box, 2 multiple select box, 3 check box, 4 radio button, 5 textarea
 				'choices' => '',
 				'value' =>'',
 				'esc' => 'esc_attr'
 			),
 			array(
-				'ui_note' => __('class', 'p_2046s_easy_widget'),
+				'ui_note' => __('class', 'builder_2046'),
 				'ui_type' => 'input', 
 				'esc' => 'filter_attribute_characters',
 				'choices' => '',

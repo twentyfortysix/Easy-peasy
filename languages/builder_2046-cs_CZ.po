@@ -1,0 +1,876 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Easy\n"
+"POT-Creation-Date: 2014-07-03 02:34+0100\n"
+"PO-Revision-Date: 2014-07-03 02:36+0100\n"
+"Last-Translator: \n"
+"Language-Team: 2046.cz <2046@2046.cz>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: /Library/WebServer/www/wp-content/plugins/easy\n"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/2046-easy.php:70
+msgid "Easy content builder."
+msgstr "Easy - nástroj na stavení bloků obsahu Wordpressu."
+
+#: /Library/WebServer/www/wp-content/plugins/easy/2046-easy.php:82
+msgid "Easy"
+msgstr "Easy\t"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/2046-easy.php:488
+msgid "General"
+msgstr "Obecně"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/2046-easy.php:496
+msgid "Views"
+msgstr "Zobrazení"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/2046-easy.php:513
+msgid "Controls (<span class=\"res\">R</span><i>esistors</i>)"
+msgstr "Logika (<span class=\"res\">R</span><i>esistors</i>)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/2046-easy.php:531
+msgid "Documentation"
+msgstr "Dokumentace"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyFunctions.php:423
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyFunctions.php:425
+msgid "Edit"
+msgstr "Edituj"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyFunctions.php:1103
+msgid "&laquo; Previous Page"
+msgstr "&laquo; Předešlá stránka"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyFunctions.php:1104
+msgid "Next Page &raquo;"
+msgstr "Další stránka &raquo;"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:23
+msgid "Anyone"
+msgstr "Kdokoli"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:24
+msgid "Subcriber"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:25
+msgid "Contributor"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:26
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:926
+msgid "Author"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:27
+msgid "Editor"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:28
+msgid "Administrator"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:40
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:82
+msgid "no link"
+msgstr "bez odkazu"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:41
+msgid "Link to \"post\""
+msgstr "Odkaz na \"post\""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:42
+msgid "Link to \"custom meta\""
+msgstr "Odkaz na \"custom meta\""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:46
+msgid "raw text"
+msgstr "čistý text"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:56
+msgid "Default scaffolding"
+msgstr "Základní \"scaffolding\""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:57
+msgid "One per row"
+msgstr "Jeden na řádek"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:58
+msgid "Many per row"
+msgstr "Více na řádek"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:62
+msgid "content"
+msgstr "Obsah"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:63
+msgid "excerpt"
+msgstr "Skrácenina"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:64
+msgid "above more tag"
+msgstr "Obsah na tagem \"more\""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:65
+msgid "below more tag"
+msgstr "Obsah pod tagem \"more\""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:72
+msgid "links"
+msgstr "odkazy"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:73
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:94
+msgid "list"
+msgstr "seznam"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:83
+msgid "object link"
+msgstr "Odkaz na objekt"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:84
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:868
+msgid "custom meta value"
+msgstr "vlastni meta hodnota (meta value)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:93
+msgid "text"
+msgstr "text"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:97
+msgid "publish"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:98
+msgid "pending"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:99
+msgid "draft"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:100
+msgid "auto-draft"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:101
+msgid "future"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:102
+msgid "private"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:103
+msgid "inherit"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:104
+msgid "trash"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:105
+msgid "any"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:119
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:381
+msgid "show when"
+msgstr "zobrazit když"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:120
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:382
+msgid "hide when"
+msgstr "skrýt když"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:126
+msgid "home"
+msgstr "index"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:131
+msgid "front page"
+msgstr "úvodní stránka"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:136
+msgid "single"
+msgstr "článek"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:141
+msgid "page"
+msgstr "stránka"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:146
+msgid "sticky"
+msgstr "přišpendlený článek"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:151
+msgid "category"
+msgstr "kategorie"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:156
+msgid "taxonomy archive"
+msgstr "archív taxonomie"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:161
+msgid "archive"
+msgstr "archív"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:166
+msgid "search result"
+msgstr "výsledky vehledávání"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:171
+msgid "404 error"
+msgstr "404 chybová stránka"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:176
+msgid "attachment page"
+msgstr "stránka přílohy"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:183
+msgid "Sort by"
+msgstr "seřadit podle"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:184
+msgid "ID"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:185
+msgid "title"
+msgstr "titulek"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:186
+msgid "date"
+msgstr "datum"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:187
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1423
+msgid "modified"
+msgstr "změněno"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:188
+msgid "rand"
+msgstr "náhodně"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:189
+msgid "comment_count"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:190
+msgid "menu_order"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:191
+msgid "parent"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:192
+msgid "meta_value"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:193
+msgid "meta_value_num"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:204
+msgid "Category"
+msgstr "Kategorie"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:208
+msgid "Control by"
+msgstr "Řízeno podle"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:215
+msgid "cat IDs (separate by coma)"
+msgstr "kat. ID (oddělené čárkou)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:228
+msgid "Widget admin title"
+msgstr "Název Widgety v administraci"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:232
+msgid "Admin widget title"
+msgstr "Název Widgety v administraci"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:245
+msgid "Surrounding widget scafold type"
+msgstr "typ Scafoldu kolem widgety"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:249
+msgid "Select type"
+msgstr "Vyber typ"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:260
+msgid "Widget frontend title"
+msgstr "Titluek na frontendu"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:264
+msgid "Rendered before the loop"
+msgstr "Zobrazeno před Widgetou na frontendu"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:280
+msgid "row class"
+msgstr "třída řádku"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:292
+msgid "Widget description"
+msgstr "Popisek widgety"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:296
+msgid "Widget intention. Used for administrative purposes."
+msgstr "Popisek funkce widgety, pro snadnějsí orientaci v záměru widgety apod."
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:312
+msgid "each (column) class"
+msgstr "třída sloupce"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:326
+msgid "Permissions"
+msgstr "Pravomoce zobrazení"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:330
+msgid "Who will be able to see the widget result."
+msgstr "Kdo může vidět widgetu"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:342
+msgid "On template types: show / hide"
+msgstr "Na typu templejtu: zobrazit/skrýt"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:350
+msgid "On Post types: show/hide"
+msgstr "Na typu příspěvku: zobrazit/skrýt"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:354
+msgid "post, page, etc."
+msgstr "post, page atd."
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:363
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:619
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:637
+msgid "show"
+msgstr "zobrazit"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:364
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:620
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:638
+msgid "hide"
+msgstr "skryt"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:375
+msgid "On ID: show / hide"
+msgstr "Na ID příspěvku: zobrazit/skrýt"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:388
+msgid "IDs. Separed by comma"
+msgstr "ID (odděleno čárkou)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:400
+msgid "Post type"
+msgstr "Typ příspěvku"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:404
+msgid "post, page, attachment,.."
+msgstr "článek, stránka, příloha.."
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:423
+msgid "affected by page number"
+msgstr "ovlivněno stránkováním"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:424
+msgid "not affected"
+msgstr "neovlivněno"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:434
+msgid "Show only (by ID)"
+msgstr "Zobrazit pouze (podle ID)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:438
+msgid "post / page / custom IDs (separate by coma)"
+msgstr "článek, stránka, ID (odělené čárkou)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:450
+msgid "By date"
+msgstr "Podle data"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:454
+msgid "4 digit year"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:461
+msgid "Month number (from 1 to 12)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:468
+msgid "Week of the year (from 0 to 53)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:475
+msgid "Day of the month (from 1 to 31)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:482
+msgid "before (2 month ago)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:489
+msgid "after (1 month ago)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:501
+msgid "Exclude actual post/page"
+msgstr "Kromě článku/stránky/.."
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:505
+msgid "Exclude currently displayed post/page from this Easy loop"
+msgstr "Výjma aktuálně zobrazeného článku,.."
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:516
+msgid "Taxonomy"
+msgstr "Taxonomie"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:520
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:564
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:601
+msgid "only one taxonomy (name)"
+msgstr "pouze taxonomie (název)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:527
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:608
+msgid "terms IDs, separated by comma"
+msgstr "terminy (tagy) (oddělené čárkou)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:535
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:571
+msgid "terms operator"
+msgstr "operátor termínů"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:539
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:575
+msgid "(operator)"
+msgstr "(operátor)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:547
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:583
+msgid ""
+"Taxonomy relation. If you use multiple taxonomy bricks, the later relation "
+"beats previous ones."
+msgstr ""
+"Vstah taxonomii. Pokud použiješ vícero  taxonimických bloků, poslední "
+"použitý přebije předcházející"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:551
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:587
+msgid "(relation)"
+msgstr "(vztah)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:560
+msgid "Taxonomy match"
+msgstr "Porovnání taxonomií"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:597
+msgid "On Taxonomy (Category)"
+msgstr "Na taxonomii (kategorii)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:629
+msgid "Show/hide based on hierarchy"
+msgstr "zobrazit/skrýt podle hierarchie"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:643
+msgid "Show on"
+msgstr "Zobrazit na"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:647
+msgid "On child pages of defined IDs"
+msgstr "Na podstránkách definovaných ID"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:648
+msgid "On parent page of defined IDs"
+msgstr "Na nadřazených stránkách podle ID"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:653
+msgid "Page IDs, separated by comma"
+msgstr "ID stránek (oddělené čárkou)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:660
+msgid "Depth (default 1 level)"
+msgstr "Úroveň (autoamticky na 1)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:671
+msgid "omit"
+msgstr "vynechat"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:672
+msgid "include"
+msgstr "zahrnout"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:681
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1224
+msgid "Meta"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:685
+msgid "Meta key"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:692
+msgid "Meta value"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:796
+msgid "Link to archive"
+msgstr "Odkaz na archív"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:809
+msgid "Taxonomy or Post type name"
+msgstr "Taxnomie, nebo název typu příspěvku"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:816
+msgid "term ID (in case of Taxonomy)"
+msgstr "tarm ID (v případě taxonomie)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:823
+msgid "Link text"
+msgstr "Odkaz textu"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:830
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:875
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:953
+msgid "custom class"
+msgstr "volitelná třída"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:841
+msgid "Title"
+msgstr "Titulek"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:851
+msgid "Scafolding"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:858
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1111
+msgid "Link taget"
+msgstr "Cíl odkazu "
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:862
+msgid "same window"
+msgstr "stejné okno"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:863
+msgid "new window"
+msgstr "nové okno"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:885
+msgid "Content"
+msgstr "Obsah"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:896
+msgid "Read more text"
+msgstr "Text \"zobrazit více..\""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:902
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1083
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1128
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1191
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1214
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1256
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1277
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1377
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1391
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1405
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1443
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1478
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1500
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1535
+msgid "class"
+msgstr "třída"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:912
+msgid "Sidebar"
+msgstr "Sidebar"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:916
+msgid "Sidebar ID"
+msgstr "ID sidebaru"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:933
+msgid "plain text"
+msgstr "čistý txt"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:934
+msgid "link to authors posts"
+msgstr "odkaz na autorovy příspěvky"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:935
+msgid "link to authors url"
+msgstr "odkaz na autorovu url"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:964
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:983
+msgid "Number"
+msgstr "Počet"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:968
+msgid "Number of objects."
+msgstr "Počet objektů"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:979
+msgid "Offset"
+msgstr "Posun"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:994
+msgid "Status"
+msgstr "Status"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1008
+msgid "By author"
+msgstr "Podle autora"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1015
+msgid "by ID(only one)"
+msgstr "podle ID (pouze jedno)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1016
+msgid "author of current post content"
+msgstr "autor konkrétního příspěvku"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1032
+msgid "Order"
+msgstr "Řazení"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1050
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1235
+msgid "meta key"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1060
+msgid "Taxonomies (Categories)"
+msgstr "Taxonime (Kategorie)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1070
+msgid "taxonomy name"
+msgstr "Název taxonomie"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1079
+msgid "Do not show count"
+msgstr "Nezobrazovat počet"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1079
+msgid "Show count"
+msgstr "Zobrazit počet"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1093
+msgid "Featured image"
+msgstr "Náhledový obrázek"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1097
+msgid "Get featured image."
+msgstr "Získat náhledový obrázek"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1104
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1150
+msgid "Link image to"
+msgstr "Odkaz obrázku"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1121
+msgid "custom field name OR url"
+msgstr "název vlastního meta, nebo url"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1139
+msgid "Post gallery"
+msgstr "Galerie příspěvku"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1143
+msgid "Image size"
+msgstr "Velikost obrázku"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1160
+msgid "Ascendingly"
+msgstr "Vzestupně"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1161
+msgid "Descendingly"
+msgstr "Sestupně"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1175
+msgid "empty title attribute"
+msgstr "prázdný atribut title"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1176
+msgid "image as image title attribute"
+msgstr "titulek v atributu title"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1177
+msgid "caption as image title attribute"
+msgstr "podtitulek v atributu title"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1185
+msgid "include featured image"
+msgstr "včetně náhledového obrázku"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1186
+msgid "exclude featured image"
+msgstr "mimo náhledový obrázek"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1201
+msgid "Edit link"
+msgstr "Odkaz na editaci"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1228
+msgid "Show as"
+msgstr "Zobrazit jako"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1249
+msgid "separator"
+msgstr "oddělovač"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1266
+msgid "Text"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1270
+msgid "Some text"
+msgstr "Nějaký text"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1288
+msgid "Debug controls"
+msgstr "Debug"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1292
+msgid ""
+"Debug will output the Query made by control bricks ABOVE this debug brick!</"
+"br></br>See the out put on frontend."
+msgstr "Debug vypíše na frontendu obsah bloků které má nad sebou."
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1304
+msgid "For actual post/page"
+msgstr "Pro aktuální příspěvek"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1308
+msgid "It will \"guess\" the actual post and show the VIEW content for it"
+msgstr ""
+"Uhádne aktuální zobrazenou stránku a zobrazi pro ní obsah Zobrazeni (View)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1320
+msgid "Hierarchy based"
+msgstr "Podle hierarchie"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1326
+msgid "Pages from the same level as current page"
+msgstr "Stránky ze stejné úrovně"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1327
+msgid "Pages from the same level as given ID"
+msgstr "Stránky ze stejné úrovně jako je zvolené ID"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1328
+msgid "Child pages of current page"
+msgstr "Podstránky aktuální stránky"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1329
+msgid "Child pages of given ID"
+msgstr "Podstránky zvolene ID stránky "
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1335
+msgid "given ID, only one"
+msgstr "nastavené ID (pouze jendo)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1342
+msgid "(in case of: ..from same level)"
+msgstr "(v případě:.. ze stejné úrovně)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1345
+msgid "Include current"
+msgstr "Včetně aktuální"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1346
+msgid "Exclude current"
+msgstr "Mimo aktuální"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1355
+msgid "List top level pages"
+msgstr "Zobrazit stránky v nejvyšší urovni"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1356
+msgid "Do not list top level pages"
+msgstr "Nezobrazovat stránky v nejvyšší úrovni"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1366
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1370
+msgid "[shortcode]"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1387
+msgid "Comments number"
+msgstr "Počet komentářů"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1401
+msgid "Comments"
+msgstr "Komentáře"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1415
+msgid "Date"
+msgstr "Datum"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1422
+msgid "published"
+msgstr "publikováno"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1436
+msgid "PHP date format"
+msgstr "PHP formát datumu"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1453
+msgid "WP-Pagenavi"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1457
+msgid ""
+"<a href=\"http://wordpress.org/extend/plugins/wp-pagenavi/\">WP-Pagenavi</a> "
+"works when the plugin is installed and active.<br />The navigation will be "
+"placed automatically after the View content."
+msgstr ""
+"<a href=\"http://wordpress.org/extend/plugins/wp-pagenavi/\">WP-Pagenavi</a> "
+"v případě že je plugin nainstalován.<br />Navigace je umístěna automaticky "
+"za příspěvky."
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1467
+msgid "Link to previous post"
+msgstr "Odkaz na předchozí příspěvek"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1471
+msgid "Previous text - Post name if empty"
+msgstr "Text odkazu na předchozí říspěvek"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1489
+msgid "Link to next post"
+msgstr "Odkaz na další příspěvek"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1493
+msgid "Next text - Post name if empty"
+msgstr "Text odkazu na předešlý příspěvek"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1510
+msgid "Navigation (Prev/Next links)"
+msgstr "Navigace (předchozí/následující)"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1514
+msgid "Separator"
+msgstr "Oddělovač"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1521
+msgid "Prev label"
+msgstr "Titulek odkazu na předchozí"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1528
+msgid "Next label"
+msgstr "Titulek odkazu na následující"

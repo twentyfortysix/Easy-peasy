@@ -4,9 +4,9 @@ Contributors: o----o
 Plugin URI: http://wordpress.org/extend/easy
 Donate Link: http://2046.cz/
 Tags: admin, widget, loop, page, post, custom, type, taxonomy, tag, category, comments, content, drag, drop, gallery, image
-Requires at least: 3.4.1
-Tested up to: 3.6-beta1
-Stable tag: 0.9.4.6
+Requires at least: 3.7
+Tested up to: 3.9.1
+Stable tag: 0.9.5.8
 
 Easy, but complex widget website builder.
 
@@ -83,6 +83,10 @@ In order to have the website fast as light even with the Easy plugin heavily in 
  * <a href="http://2046.cz/easy/control">Control description</a>
  * <a href="http://2046.cz/easy/extend">Extend</a>
 
+ = Easy theme framework =
+A pure theme with slots (sidebars) for tons of your widgets.
+ * <a href="http://2046.cz/easy-framework">Easy framework</a>
+
  = Compatible with: =
  <a href="http://wpml.org/">WPML</a>, <a href="http://wordpress.org/plugins/qtranslate/">qTranslate</a>, <a href="https://www.google.com/url?q=http://wordpress.org/plugins/custom-content-type-manager/&sa=U&ei=R-DNUcKJIM2B4AT7xoGwDQ&ved=0CAcQFjAA&client=internal-uds-cse&usg=AFQjCNE2SU-CT1WLx80VKYlh4e1w6ZIcbg">CCTM</a>, <a href="http://wordpress.org/plugins/wp-pagenavi/">WP-pagenavi</a>, <a href="http://wordpress.org/plugins/w3-total-cache/">W3TC</a>, <a href="http://wordpress.org/plugins/fancybox-for-wordpress/">fancybox</a> and others.
 
@@ -116,6 +120,44 @@ It is possible and even more, it's easy. Check out the documentation <a href="ht
 1. Screenshot of the version 0.5
 
 == Change log ==
+
+= 0.9.5.8 =
+* NEW - Bootstrap3 menu (walker) generates "proper" Bootstrap 3 menu HTML element structure.. You have to have the Boostrap base theme or load Bootstrap css, js your self! (Walker credits goes to: Edward McIntyre)
+
+= 0.9.5.7 =
+* minor bug fix
+
+= 0.9.5.6 =
+ * NEW - Spanish translation (Translated by <a href="http://www.webhostinghub.com/" target="_blank">WebHostingHub</a> )
+
+= 0.9.5.5 =
+ * NEW - date control brick (compatible for wp 3.7+)
+
+= 0.9.5.4 =
+ * NEW - Czech translation .. wanna translate it to your language.. go ahead :)
+
+= 0.9.5.3 =
+ * added sorting by meta (new meta key filed)
+
+= 0.9.5.2 =
+ * FIX - If the Easy widget gets no content it will not output any surrounding scafold (div) whatsoever. In other words the empty result will produce no HTML, nothing.
+
+= 0.9.5.1 =
+ * FIX - VIEW > Feautured image box had wrong input validation which adds the http:// string into the value.
+
+= 0.9.5 =
+ * NEW - the featured image brick has new link type "url". The featured image can be link to ither image sizes, linked to post/page, custum field value or one defined url.
+
+= 0.9.4.9 =
+ * FIX - classes for each post did not held proper post ID
+ * FIX - VIEW > link to archive. in the case where there were no more posts than actually shown the WP_error rised up and has not been held properly. 
+
+= 0.9.4.8 =
+ * NEW - CONTROL - Hierarchy based; has new choice "Do not list up top level pages"
+ * FIX - typo in "f2046_id_cleaner_to_string" function 
+	
+= 0.9.4.7 =
+ * NEW - the brick calling excerpt (VIEW>Content>Excerpt) does not work as expected. In order to make it work I made a small hack so that the more link is present.
 
 = 0.9.4.6 = 
  * FIX a small fix on line 893, nothing cruicial

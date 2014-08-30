@@ -3,7 +3,7 @@
  * Plugin name: Easy
  * Plugin URI: http://wordpress.org/extend/plugins/easy/
  * Description: Easy, but complex GUI website builder.
- * Version: 0.9.4.6
+ * Version: 0.9.5.8
  * Author: 2046
  * Author URI: http://2046.cz
  *
@@ -27,16 +27,6 @@ function builder_2046_main_loop_load_widget() {
 	// localization
 	load_plugin_textdomain( 'builder_2046', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/'); 
 }
-
-// make class instance
-//~ $EasyClassClone = new Easy_2046_builder();
-// trespass data to the widget class val
-Easy_2046_builder::$EasyItems = $EasyItems;
-Easy_2046_builder::$EasyQuery = array(
-	'post_type' => 'post',
-	'posts_per_page' => 1,
-	'post_status' => 'publish'
-);
 
 //builder_2046_main_loop::EasyItems('oop');
 /**
@@ -178,6 +168,7 @@ Easy_2046_builder::$EasyQuery = array(
 			$b2046_scafolding_column_class = $instance['b2046_scafolding_column_class']['gui']['0']['value'];
 			$widget_title = $instance["b2046_widget_title"]["gui"]['0']["value"];
 			$output = '';
+			$content= '';
 			$class= '';
 			
 			
@@ -199,8 +190,6 @@ Easy_2046_builder::$EasyQuery = array(
 						$output .= $args['before_widget'];
 					}
 					
-					$WPpostClass = get_post_class();
-					$class = implode(' ',$WPpostClass) .' '. $class;
 					//~ widget title
 					if(!empty($widget_title)){
 						$output .='<h4 class="widget_title">'.$widget_title.'</h4>';
@@ -208,20 +197,27 @@ Easy_2046_builder::$EasyQuery = array(
 					
 					// The Loop
 					while ( $easy_query->have_posts() ) : $easy_query->the_post();
-						//~ scafold check
-						if($b2046_scafold_type == 1){
-							$output .= '<div class="'.$b2046_scafold_row_class.'">';
-						}
-						
-						$output .= '<div id="post-'.get_the_ID().'" class="'.$class.'"'; 
-						$output .= '>';
-						$output .= $this->f2046_front_end_builder($instance, $easy_query);
-						$output .= '</div>';
-						
-						//~ scafold - one per row - row
-						if($b2046_scafold_type == 1){
+						// build the proper class
+						$WPpostClass = get_post_class($class, $easy_query->post->ID);
+						$class = implode(' ',$WPpostClass);
+
+						// get the content in the variable 
+						// so we later can check if anything is present and wrap it by the scafold, if not no scafold is necesary
+						$content = $this->f2046_front_end_builder($instance, $easy_query);
+							//~ scafold check
+							if($b2046_scafold_type == 1){
+								$output .= '<div class="'.$b2046_scafold_row_class.'">';
+							}
+							
+							$output .= '<div id="post-'.get_the_ID().'" class="'.$class.'"'; 
+							$output .= '>';
+							$output .= $content;
 							$output .= '</div>';
-						}
+							
+							//~ scafold - one per row - row
+							if($b2046_scafold_type == 1){
+								$output .= '</div>';
+							}
 					endwhile;
 					
 					//~ many per row || one per row
@@ -240,7 +236,9 @@ Easy_2046_builder::$EasyQuery = array(
 			//~ }
 			
 			//~ serve it out :)
-			echo $output;
+			if(!empty($content)){
+				echo $output;
+			}
 		}
 	}
 	//~ END OF WORDPRESS DEFAULT WIDGET GAME
@@ -477,7 +475,7 @@ Easy_2046_builder::$EasyQuery = array(
 			}
 		}
 		// output the inputs to the widget
-		$output .= '<div class="general_bank"><h3>General</h3><ul>';
+		$output .= '<div class="general_bank"><h3>'.__('General', 'builder_2046'). '</h3><ul>';
 		//~ $post_types = get_post_types($args_types,'names'); 
 		//~ foreach ($post_types as $post_type ) {
 		  //~ echo '<p>'. $post_type. '</p>';
@@ -485,7 +483,7 @@ Easy_2046_builder::$EasyQuery = array(
 			//~ $output .= $this->f2046_inputbuilder($global_view_items, $instance, 'default');
 			$output .= $this->f2046_widget_brick_collector($global_view_items, $instance, 'general');
 		$output .= '</ul></div>
-		<h3>'.__('Views').'</h3>
+		<h3>'.__('Views', 'builder_2046').'</h3>
 		<div class="view_holder">
 			<div class="view_bank">
 				<ul>';
@@ -502,7 +500,7 @@ Easy_2046_builder::$EasyQuery = array(
 				</div>
 			</div>
 		</div>
-		<h3 class="control_h3">'.__('Controls (<span class="res">R</span><i>esistors</i>)').'</h3>
+		<h3 class="control_h3">'.__('Controls (<span class="res">R</span><i>esistors</i>)', 'builder_2046').'</h3>
 		<div class="control_holder">
 			<div class="control_bank">
 				<ul>';
@@ -520,7 +518,7 @@ Easy_2046_builder::$EasyQuery = array(
 				</div>
 			</div>
 		</div>
-		<div style="float:left;clear:both;width:100%"><a target="_blank" href="http://2046.cz/easy">Documentation</a></div>
+		<div style="float:left;clear:both;width:100%"><a target="_blank" href="http://2046.cz/easy">'.__('Documentation', 'builder_2046').'</a></div>
 		';
 		// get the gold
 		return $output;
@@ -671,7 +669,7 @@ Easy_2046_builder::$EasyQuery = array(
 					if($item['block'] == 'resistor'){
 						$output .= '<span class="res">R</span>';	
 					}
-					$output .='<strong>'.$item['item_title'].'</strong> <b class="rem">x</b><br />';
+					$output .='<strong>'.__($item['item_title'], 'builder_2046').'</strong> <b class="rem">x</b><br />';
 				}	
 				$each_gui_i = 0;
 				$gui_value = '';
@@ -729,7 +727,7 @@ Easy_2046_builder::$EasyQuery = array(
 					//~ 
 					if ($val['ui_type'] == 'input'){
 						if(isset($ui_note)){
-							$placeholder = 'placeholder="'.$ui_note.'"';
+							$placeholder = 'placeholder="'.__($ui_note , 'builder_2046').'"';
 						}else{
 							$placeholder = '';
 						}
@@ -739,7 +737,7 @@ Easy_2046_builder::$EasyQuery = array(
 					// textarea
 					elseif ($val['ui_type'] == 'textarea'){
 						if(isset($ui_note)){
-							$placeholder = 'placeholder="'.$ui_note.'"';
+							$placeholder = 'placeholder="'.__($ui_note, 'builder_2046').'"';
 						}else{
 							$placeholder = '';
 						}
@@ -751,7 +749,7 @@ Easy_2046_builder::$EasyQuery = array(
 					elseif ($val['ui_type'] == 'select_box'){
 						$output .= '<select name="'. $name .'[gui]['.$each_gui_i.'][value]">';
 						if(isset($ui_note)){
-							$output .='<option>-- '.$ui_note.' --</option>';
+							$output .='<option>-- '.__($ui_note, 'builder_2046').' --</option>';
 						}
 						foreach($val['choices'] as $keyx => $valx){
 							if($keyx == $gui_value){
@@ -759,7 +757,7 @@ Easy_2046_builder::$EasyQuery = array(
 							}else{
 								$selected = '';
 							}
-							$output .= '<option'.$selected.' value="'.$keyx.'">'.$valx.'</option>';
+							$output .= '<option'.$selected.' value="'.$keyx.'">'.__($valx, 'builder_2046').'</option>';
 						}
 						$output .= '</select>';
 					}
@@ -774,9 +772,9 @@ Easy_2046_builder::$EasyQuery = array(
 							}else{
 								$selected = '';
 							}
-							$output .= '<div class="ew2046_check_box"><input name="'. $name .'[gui]['.$each_gui_i.'][value]" type="checkbox"'.$selected.' value="'.$keys.'" />'.$vals.'<br />';
+							$output .= '<div class="ew2046_check_box"><input name="'. $name .'[gui]['.$each_gui_i.'][value]" type="checkbox"'.$selected.' value="'.$keys.'" />'.__($vals, 'builder_2046').'<br />';
 							if(isset($ui_note)){
-								$output .= '<em>'.$ui_note.'</em>';
+								$output .= '<em>'.__($ui_note, 'builder_2046').'</em>';
 							}
 							$output .= '</div>';
 						}
@@ -786,7 +784,7 @@ Easy_2046_builder::$EasyQuery = array(
 					//~ 
 					elseif ($val['ui_type'] == 'hidden'){
 						if(isset($ui_note)){
-							$placeholder = $ui_note;
+							$placeholder = __($ui_note, 'builder_2046');
 						}else{
 							$placeholder = '';
 						}
@@ -804,10 +802,10 @@ Easy_2046_builder::$EasyQuery = array(
 							}else{
 								$selected = '';
 							}
-							$output .= '<input'.$selected.' type="radio" name="'. $name .'[gui]['.$each_gui_i.'][value]" value="'.$keyx.'" /><label>'.$valx.'</label><br />';
+							$output .= '<input'.$selected.' type="radio" name="'. $name .'[gui]['.$each_gui_i.'][value]" value="'.$keyx.'" /><label>'.__($valx, 'builder_2046').'</label><br />';
 						}
 						if(isset($ui_note)){
-							$output .='<em>'.$ui_note.'</em>';
+							$output .='<em>'.__($ui_note, 'builder_2046').'</em>';
 						}
 						$output .= '</div>';
 					}
@@ -816,7 +814,7 @@ Easy_2046_builder::$EasyQuery = array(
 					//~ 
 					elseif ($val['ui_type'] == 'plain'){
 						if(isset($ui_note)){
-							$placeholder = $ui_note;
+							$placeholder = __($ui_note, 'builder_2046');
 						}else{
 							$placeholder = '';
 						}
@@ -851,7 +849,13 @@ Easy_2046_builder::$EasyQuery = array(
 	function f2046_id_cleaner_to_string($val){
 		if(!empty($val)){
 			$post_id_string = ereg_replace(" ", "", $val);
-			return $post_ids_string;
+			return $post_id_string;
+		}
+	}
+	function f2046_string_to_array($val){
+		if(!empty($val)){
+			$val = explode(' ', $val);
+			return $val;
 		}
 	}
 	//~  helper  for listing all the 
@@ -864,7 +868,7 @@ Easy_2046_builder::$EasyQuery = array(
 		return $out;
 	}
 	// search child pages through X levels
-	function getChildren($id, $depth, $include_exclude){
+	function getChildren($id, $depth, $include_exclude, $exclude_top_level_pages){
 		$i = 0;
 		$pages = $id;
 		// create empty tmp array,
@@ -926,8 +930,42 @@ Easy_2046_builder::$EasyQuery = array(
 		}
 		return $pages;
 	}
+	// get all top level pages
+	function getTopLevelPages($post_type, $post_status){
+		$args = array(
+			'parent' => 0,
+			'post_type' => $post_type,
+			'post_status' => $post_status,
+			'posts_per_page'=> -1
+		); 
+		$top_level_ids = array();
+
+		$query = new WP_Query($args);
+		if ( $query->have_posts() ) {
+			while ( $query->have_posts() ) {
+				$query->the_post();
+				$top_level_ids[] = $query->post->ID;
+			}
+		} 
+		/* Restore original Post Data */
+		wp_reset_postdata();
+
+		return $top_level_ids;
+	}
 
 } // END of Widget class
+
+
+// make class instance
+//~ $EasyClassClone = new Easy_2046_builder();
+// trespass data to the widget class val
+Easy_2046_builder::$EasyItems = $EasyItems;
+Easy_2046_builder::$EasyQuery = array(
+	'post_type' => 'post',
+	'posts_per_page' => 1,
+	'post_status' => 'publish'
+);
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //~ some extra functions
@@ -1055,4 +1093,209 @@ function list_of_image_sizes(){
 	$full_image_width = array('full' => 'full');
 	$list_of_image_sizes = array_merge($intermediate_image_sizes,$full_image_width );
 	return $list_of_image_sizes;
+}
+
+/**
+ * Class Name: wp_bootstrap_navwalker
+ * GitHub URI: https://github.com/twittem/wp-bootstrap-navwalker
+ * Description: A custom WordPress nav walker class to implement the Bootstrap 3 navigation style in a custom theme using the WordPress built in menu manager.
+ * Version: 2.0.4
+ * Author: Edward McIntyre - @twittem
+ * License: GPL-2.0+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ */
+
+class Easy_bootstrap_navwalker extends Walker_Nav_Menu {
+
+	/**
+	 * @see Walker::start_lvl()
+	 * @since 3.0.0
+	 *
+	 * @param string $output Passed by reference. Used to append additional content.
+	 * @param int $depth Depth of page. Used for padding.
+	 */
+	public function start_lvl( &$output, $depth = 0, $args = array() ) {
+		$indent = str_repeat( "\t", $depth );
+		$output .= "\n$indent<ul role=\"menu\" class=\" dropdown-menu\">\n";
+	}
+
+	/**
+	 * @see Walker::start_el()
+	 * @since 3.0.0
+	 *
+	 * @param string $output Passed by reference. Used to append additional content.
+	 * @param object $item Menu item data object.
+	 * @param int $depth Depth of menu item. Used for padding.
+	 * @param int $current_page Menu item ID.
+	 * @param object $args
+	 */
+	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+		/**
+		 * Dividers, Headers or Disabled
+		 * =============================
+		 * Determine whether the item is a Divider, Header, Disabled or regular
+		 * menu item. To prevent errors we use the strcasecmp() function to so a
+		 * comparison that is not case sensitive. The strcasecmp() function returns
+		 * a 0 if the strings are equal.
+		 */
+		if ( strcasecmp( $item->attr_title, 'divider' ) == 0 && $depth === 1 ) {
+			$output .= $indent . '<li role="presentation" class="divider">';
+		} else if ( strcasecmp( $item->title, 'divider') == 0 && $depth === 1 ) {
+			$output .= $indent . '<li role="presentation" class="divider">';
+		} else if ( strcasecmp( $item->attr_title, 'dropdown-header') == 0 && $depth === 1 ) {
+			$output .= $indent . '<li role="presentation" class="dropdown-header">' . esc_attr( $item->title );
+		} else if ( strcasecmp($item->attr_title, 'disabled' ) == 0 ) {
+			$output .= $indent . '<li role="presentation" class="disabled"><a href="#">' . esc_attr( $item->title ) . '</a>';
+		} else {
+
+			$class_names = $value = '';
+
+			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+			$classes[] = 'menu-item-' . $item->ID;
+
+			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+
+			if ( $args->has_children )
+				$class_names .= ' dropdown';
+
+			if ( in_array( 'current-menu-item', $classes ) )
+				$class_names .= ' active';
+
+			$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+
+			$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+
+			$output .= $indent . '<li' . $id . $value . $class_names .'>';
+
+			$atts = array();
+			$atts['title']  = ! empty( $item->title )	? $item->title	: '';
+			$atts['target'] = ! empty( $item->target )	? $item->target	: '';
+			$atts['rel']    = ! empty( $item->xfn )		? $item->xfn	: '';
+
+			// If item has_children add atts to a.
+			if ( $args->has_children && $depth === 0 ) {
+				$atts['href']   		= '#';
+				$atts['data-toggle']	= 'dropdown';
+				$atts['class']			= 'dropdown-toggle';
+				$atts['aria-haspopup']	= 'true';
+			} else {
+				$atts['href'] = ! empty( $item->url ) ? $item->url : '';
+			}
+
+			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
+
+			$attributes = '';
+			foreach ( $atts as $attr => $value ) {
+				if ( ! empty( $value ) ) {
+					$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+					$attributes .= ' ' . $attr . '="' . $value . '"';
+				}
+			}
+
+			$item_output = $args->before;
+
+			/*
+			 * Glyphicons
+			 * ===========
+			 * Since the the menu item is NOT a Divider or Header we check the see
+			 * if there is a value in the attr_title property. If the attr_title
+			 * property is NOT null we apply it as the class name for the glyphicon.
+			 */
+			if ( ! empty( $item->attr_title ) )
+				$item_output .= '<a'. $attributes .'><span class="glyphicon ' . esc_attr( $item->attr_title ) . '"></span>&nbsp;';
+			else
+				$item_output .= '<a'. $attributes .'>';
+
+			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+			$item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="caret"></span></a>' : '</a>';
+			$item_output .= $args->after;
+
+			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+		}
+	}
+
+	/**
+	 * Traverse elements to create list from elements.
+	 *
+	 * Display one element if the element doesn't have any children otherwise,
+	 * display the element and its children. Will only traverse up to the max
+	 * depth and no ignore elements under that depth.
+	 *
+	 * This method shouldn't be called directly, use the walk() method instead.
+	 *
+	 * @see Walker::start_el()
+	 * @since 2.5.0
+	 *
+	 * @param object $element Data object
+	 * @param array $children_elements List of elements to continue traversing.
+	 * @param int $max_depth Max depth to traverse.
+	 * @param int $depth Depth of current element.
+	 * @param array $args
+	 * @param string $output Passed by reference. Used to append additional content.
+	 * @return null Null on failure with no changes to parameters.
+	 */
+	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
+        if ( ! $element )
+            return;
+
+        $id_field = $this->db_fields['id'];
+
+        // Display this element.
+        if ( is_object( $args[0] ) )
+           $args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
+
+        parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+    }
+
+	/**
+	 * Menu Fallback
+	 * =============
+	 * If this function is assigned to the wp_nav_menu's fallback_cb variable
+	 * and a manu has not been assigned to the theme location in the WordPress
+	 * menu manager the function with display nothing to a non-logged in user,
+	 * and will add a link to the WordPress menu manager if logged in as an admin.
+	 *
+	 * @param array $args passed from the wp_nav_menu function.
+	 *
+	 */
+	public static function fallback( $args ) {
+		if ( current_user_can( 'manage_options' ) ) {
+
+			extract( $args );
+
+			$fb_output = null;
+
+			if ( $container ) {
+				$fb_output = '<' . $container;
+
+				if ( $container_id )
+					$fb_output .= ' id="' . $container_id . '"';
+
+				if ( $container_class )
+					$fb_output .= ' class="' . $container_class . '"';
+
+				$fb_output .= '>';
+			}
+
+			$fb_output .= '<ul';
+
+			if ( $menu_id )
+				$fb_output .= ' id="' . $menu_id . '"';
+
+			if ( $menu_class )
+				$fb_output .= ' class="' . $menu_class . '"';
+
+			$fb_output .= '>';
+			$fb_output .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">Add a menu</a></li>';
+			$fb_output .= '</ul>';
+
+			if ( $container )
+				$fb_output .= '</' . $container . '>';
+
+			echo $fb_output;
+		}
+	}
 }

@@ -1,0 +1,835 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Easy\n"
+"POT-Creation-Date: 2014-07-02 22:51+0100\n"
+"PO-Revision-Date: 2014-07-03 00:15+0100\n"
+"Last-Translator: \n"
+"Language-Team: 2046.cz <2046@2046.cz>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __();_e()\n"
+"X-Poedit-SearchPath-0: /Library/WebServer/www/wp-content/plugins/easy\n"
+
+#: /Library/WebServer/www/wp-content/plugins/easy/2046-easy.php:70
+msgid "Easy content builder."
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/2046-easy.php:82
+msgid "Easy"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/2046-easy.php:488
+msgid "General"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/2046-easy.php:496
+msgid "Views"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/2046-easy.php:513
+msgid "Controls (<span class=\"res\">R</span><i>esistors</i>)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/2046-easy.php:531
+msgid "Documentation"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyFunctions.php:403
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyFunctions.php:405
+msgid "Edit"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyFunctions.php:1083
+msgid "&laquo; Previous Page"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyFunctions.php:1084
+msgid "Next Page &raquo;"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:23
+msgid "Anyone"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:24
+msgid "Subcriber"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:25
+msgid "Contributor"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:26
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:875
+msgid "Author"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:27
+msgid "Editor"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:28
+msgid "Administrator"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:40
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:82
+msgid "no link"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:41
+msgid "Link to \"post\""
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:42
+msgid "Link to \"custom meta\""
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:46
+msgid "raw text"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:56
+msgid "Default scaffolding"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:57
+msgid "One per row"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:58
+msgid "Many per row"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:62
+msgid "content"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:63
+msgid "excerpt"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:64
+msgid "above more tag"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:65
+msgid "below more tag"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:72
+msgid "links"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:73
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:94
+msgid "list"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:83
+msgid "object link"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:84
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:817
+msgid "custom meta value"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:93
+msgid "text"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:97
+msgid "publish"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:98
+msgid "pending"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:99
+msgid "draft"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:100
+msgid "auto-draft"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:101
+msgid "future"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:102
+msgid "private"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:103
+msgid "inherit"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:104
+msgid "trash"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:105
+msgid "any"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:119
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:381
+msgid "show when"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:120
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:382
+msgid "hide when"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:126
+msgid "home"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:131
+msgid "front page"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:136
+msgid "single"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:141
+msgid "page"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:146
+msgid "sticky"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:151
+msgid "category"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:156
+msgid "taxonomy archive"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:161
+msgid "archive"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:166
+msgid "search result"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:171
+msgid "404 error"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:176
+msgid "attachment page"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:183
+msgid "Sort by"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:184
+msgid "ID"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:185
+msgid "title"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:186
+msgid "date"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:187
+msgid "modified"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:188
+msgid "rand"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:189
+msgid "comment_count"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:190
+msgid "menu_order"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:191
+msgid "parent"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:192
+msgid "meta_value"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:193
+msgid "meta_value_num"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:204
+msgid "Category"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:208
+msgid "Control by"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:215
+msgid "cat IDs (separate by coma)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:228
+msgid "Widget admin title"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:232
+msgid "Admin widget title"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:245
+msgid "Surrounding widget scafold type"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:249
+msgid "Select type"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:260
+msgid "Widget frontend title"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:264
+msgid "Rendered before the loop"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:280
+msgid "row class"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:292
+msgid "Widget description"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:296
+msgid "Widget intention. Used for administrative purposes."
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:312
+msgid "each (column) class"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:326
+msgid "Permissions"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:330
+msgid "Who will be able to see the widget result."
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:342
+msgid "On template types: show / hide"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:350
+msgid "On Post types: show/hide"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:354
+msgid "post, page, etc."
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:363
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:568
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:586
+msgid "show"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:364
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:569
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:587
+msgid "hide"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:375
+msgid "On ID: show / hide"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:388
+msgid "IDs. Separed by comma"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:400
+msgid "Post type"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:404
+msgid "post, page, attachment,.."
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:423
+msgid "affected by page number"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:424
+msgid "not affected"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:434
+msgid "Show only (by ID)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:438
+msgid "post / page / custom IDs (separate by coma)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:450
+msgid "Exclude actual post/page"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:454
+msgid "Exclude currently displayed post/page from this Easy loop"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:465
+msgid "Taxonomy"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:469
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:513
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:550
+msgid "only one taxonomy (name)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:476
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:557
+msgid "terms IDs, separated by comma"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:484
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:520
+msgid "terms operator"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:488
+msgid "(operator)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:496
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:532
+msgid ""
+"Taxonomy relation. If you use multiple taxonomy bricks, the later relation "
+"beats previous ones."
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:500
+msgid "(relation)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:509
+msgid "Taxonomy match"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:546
+msgid "On Taxonomy (Category)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:578
+msgid "Show/hide based on hierarchy"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:592
+msgid "Show on"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:596
+msgid "On child pages of defined IDs"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:597
+msgid "On parent page of defined IDs"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:602
+msgid "Page IDs, separated by comma"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:609
+msgid "Depth (default 1 level)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:620
+msgid "omit"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:621
+msgid "include"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:630
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1172
+msgid "Meta"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:634
+msgid "Meta key"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:641
+msgid "Meta value"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:745
+msgid "Link to archive"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:758
+msgid "Taxonomy or Post type name"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:765
+msgid "term ID (in case of Taxonomy)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:772
+msgid "Link text"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:779
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:824
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:902
+msgid "custom class"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:790
+msgid "Title"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:800
+msgid "Scafolding"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:807
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1059
+msgid "Link taget"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:811
+msgid "same window"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:812
+msgid "new window"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:834
+msgid "Content"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:845
+msgid "Read more text"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:851
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1031
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1076
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1139
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1162
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1204
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1225
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1325
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1339
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1353
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1391
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1426
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1448
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1483
+msgid "class"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:861
+msgid "Sidebar"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:865
+msgid "Sidebar ID"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:882
+msgid "plain text"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:883
+msgid "link to authors posts"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:884
+msgid "link to authors url"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:913
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:932
+msgid "Number"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:917
+msgid "Number of objects."
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:928
+msgid "Offset"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:943
+msgid "Status"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:957
+msgid "By author"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:964
+msgid "by ID(only one)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:965
+msgid "author of current post content"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:980
+msgid "Order"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:998
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1183
+msgid "meta key"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1008
+msgid "Taxonomies (Categories)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1018
+msgid "taxonomy name"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1027
+msgid "Do not show count"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1027
+msgid "Show count"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1041
+msgid "Featured image"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1045
+msgid "Get featured image."
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1052
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1098
+msgid "Link image to"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1069
+msgid "custom field name OR url"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1087
+msgid "Post gallery"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1091
+msgid "Image size"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1108
+msgid "Ascendingly"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1109
+msgid "Descendingly"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1123
+msgid "empty title attribute"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1124
+msgid "image as image title attribute"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1125
+msgid "caption as image title attribute"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1133
+msgid "include featured image"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1134
+msgid "exclude featured image"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1149
+msgid "Edit link"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1176
+msgid "Show as"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1197
+msgid "separator"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1214
+msgid "Text"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1218
+msgid "Some text"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1236
+msgid "Debug controls"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1240
+msgid ""
+"Debug will output the Query made by control bricks ABOVE this debug brick!</"
+"br></br>See the out put on frontend."
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1252
+msgid "For actual post/page"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1256
+msgid "It will \"guess\" the actual post and show the VIEW content for it"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1268
+msgid "Hierarchy based"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1274
+msgid "Pages from the same level as current page"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1275
+msgid "Pages from the same level as given ID"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1276
+msgid "Child pages of current page"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1277
+msgid "Child pages of given ID"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1283
+msgid "given ID, only one"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1290
+msgid "(in case of: ..from same level)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1293
+msgid "Include current"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1294
+msgid "Exclude current"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1303
+msgid "List top level pages"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1304
+msgid "Do not list top level pages"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1314
+msgid "Shortcode"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1318
+msgid "[shortcode]"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1335
+msgid "Comments number"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1349
+msgid "Comments"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1363
+msgid "Date"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1384
+msgid "PHP date format"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1401
+msgid "WP-Pagenavi"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1405
+msgid ""
+"<a href=\"http://wordpress.org/extend/plugins/wp-pagenavi/\">WP-Pagenavi</a> "
+"works when the plugin is installed and active.<br />The navigation will be "
+"placed automatically after the View content."
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1415
+msgid "Link to previous post"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1419
+msgid "Previous text - Post name if empty"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1437
+msgid "Link to next post"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1441
+msgid "Next text - Post name if empty"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1458
+msgid "Navigation (Prev/Next links)"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1462
+msgid "Separator"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1469
+msgid "Prev label"
+msgstr ""
+
+#: /Library/WebServer/www/wp-content/plugins/easy/includes/EasyItems.php:1476
+msgid "Next label"
+msgstr ""

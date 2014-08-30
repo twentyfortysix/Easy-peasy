@@ -77,9 +77,9 @@ textarea:-moz-placeholder, input:-moz-placeholder {color:rgb(118, 157, 165);}
 textarea:-ms-input-placeholder, input:-ms-input-placeholder {color:rgb(118, 157, 165);}
 li.li_5 {margin-top:-1em}
 /* Firefox fixes*/
-.easy_2046_lw .general_bank li{width: 48%;float: left;margin-right:1em}
+.easy_2046_lw .general_bank li{width: 47%;float: left;margin-right:1em}
 
 @media screen and (-webkit-min-device-pixel-ratio:0) { 
-	.easy_2046_lw .general_bank li{width: 48%;float: left;}
+	.easy_2046_lw .general_bank li{width: 47%;float: left;}
 	.easy_2046_lw ol li, .easy_2046_lw #view_container li,.easy_2046_lw #control_container li{width:96%}
 }
